@@ -1,7 +1,13 @@
-ody {
-    margin: 60px auto;
-    width: 70%;
+body {
+    margin: 60px auto;    
 }
+
+.container{
+    max-width:1024px;
+    padding-left:15px;
+    padding-right:15px;
+}
+
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
