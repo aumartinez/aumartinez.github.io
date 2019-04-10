@@ -6,6 +6,9 @@ body {
     max-width:1024px;
     padding-left:15px;
     padding-right:15px;
+    margin:auto;
+    display:block;
+    position:relative;
 }
 
 nav ul, footer ul {
