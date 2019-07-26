@@ -1,6 +1,6 @@
 function run() {
 	let items = document.querySelectorAll(".menu>.menu-item");
-	findChildren();
+	findChildren(items);
 	getChildren();
 }
 
