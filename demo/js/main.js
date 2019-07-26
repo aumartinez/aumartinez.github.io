@@ -1,11 +1,10 @@
-let items = document.querySelectorAll(".menu>.menu-item");
-
 function run() {
+	let items = document.querySelectorAll(".menu>.menu-item");
 	findChildren();
 	getChildren();
 }
 
-function findChildren() {
+function findChildren(items) {
 	let str = "submenu"
 	let childrenFound;
 
