@@ -1,19 +1,19 @@
 window.addEventListener("load", run, false);
 
 function run() {  
-  let elems = document.querySelectorAll("body *");
+  var elems = document.querySelectorAll("body *");
   
   activeMenu();
   
   //Filter elements
-  let scrollElems = filterElems(elems, "data-animate", "scroll");
-  let linkElems = filterElems(elems, "data-animate", "link-scroll");
-  let menu = filterElems(elems, "data-animate", "navbar-scroll");
-  let menuElems = pullMenuElems(menu);
-  let countElems = filterElems(elems, "data-animate", "counter");  
-  let activeElems = filterElems(elems, "data-toggle", "active");  
-  let hoverElems = filterElems(elems, "data-animate", "hover");
-  let typeElems = filterElems(elems, "data-animate", "type");
+  var scrollElems = filterElems(elems, "data-animate", "scroll");
+  var linkElems = filterElems(elems, "data-animate", "link-scroll");
+  var menu = filterElems(elems, "data-animate", "navbar-scroll");
+  var menuElems = pullMenuElems(menu);
+  var countElems = filterElems(elems, "data-animate", "counter");  
+  var activeElems = filterElems(elems, "data-toggle", "active");  
+  var hoverElems = filterElems(elems, "data-animate", "hover");
+  var typeElems = filterElems(elems, "data-animate", "type");
       
   //Add listeners  
   addEventListenerToList(linkElems, "click", function(){smoothScroll(event);});
@@ -36,8 +36,8 @@ function run() {
   window.addEventListener("scroll", function(){getPos(typeElems);}, false);  
   //Helpers
   function filterElems(elems, attribute, data) {
-    let arr = [];
-    for (let i = 0; i < elems.length; i++) {
+    var arr = [];
+    for (var i = 0; i < elems.length; i++) {
       if (elems[i].getAttribute(attribute) === data) {
         arr.push(elems[i]);
       }
@@ -46,19 +46,19 @@ function run() {
   }
 
   function addEventListenerToList(list, evt, func) {
-    let arr = list;
+    var arr = list;
     if (arr) {
-      for (let i = 0; i < arr.length; i++) {
+      for (var i = 0; i < arr.length; i++) {
         arr[i].addEventListener(evt, func, false);
       }
     }
   }
 
   function addEventListenerToListOnce(list, evt, fn) {  
-    let arr = list;
+    var arr = list;
     if (arr) {
-      for (let i = 0; i < arr.length; i++) {
-        let func = function() {
+      for (var i = 0; i < arr.length; i++) {
+        var func = function() {
           arr[i].removeEventListener(evt, func, false);
           fn();
         };
@@ -68,15 +68,15 @@ function run() {
   }
 
   function pullMenuElems(elems) {
-    let arr = [];
-    for (let i = 0; i < elems.length; i++) {
+    var arr = [];
+    for (var i = 0; i < elems.length; i++) {
       arr = elems[i].querySelectorAll("a");    
     }  
     return arr;
   }
 
   function callOnce(func) {
-    let called = false;
+    var called = false;
     return function() {
       if (!called) {
         called = true;
@@ -89,7 +89,7 @@ function run() {
   }
 
   function createNewEvent(evtName) {
-    let evt;
+    var evt;
     if (typeof Event === "function") {
       evt = new Event(evtName);
     }
@@ -106,8 +106,8 @@ function run() {
       elem.classList.add(myClass);
     }
     else {
-      let arr = elem.className.split(" ");
-      let i = arr.indexOf(myClass);
+      var arr = elem.className.split(" ");
+      var i = arr.indexOf(myClass);
       if (i == -1) {
         arr.push(myClass);
         elem.className = arr.join(" ");
@@ -120,8 +120,8 @@ function run() {
       elem.classList.remove(myClass);
     }
     else {
-      let arr = elem.className.split(" ");
-      let i = arr.indexOf(myClass);
+      var arr = elem.className.split(" ");
+      var i = arr.indexOf(myClass);
       if (i >= 0) {
         arr.splice(i, 1);
         elem.className = arr.join(" ");
@@ -130,13 +130,13 @@ function run() {
   }
 
   function activeMenu() {
-    let curr = "";  
+    var curr = "";  
     curr = window.location.href;
     
-    let menu = document.querySelector("ul.navbar-nav");
-    let menuParents = menu.children;
-    let menuItems = [];  
-    let activeItem;
+    var menu = document.querySelector("ul.navbar-nav");
+    var menuParents = menu.children;
+    var menuItems = [];  
+    var activeItem;
     
     curr = curr.split("/");
     curr = curr[curr.length - 1];
@@ -147,8 +147,8 @@ function run() {
     if(menu){
       menuItems = menu.querySelectorAll("a");
       
-      for(let i = 0; i < menuItems.length; i++) {
-        let str = menuItems[i].getAttribute("href");
+      for(var i = 0; i < menuItems.length; i++) {
+        var str = menuItems[i].getAttribute("href");
         str = str.split("/");
         str = str[str.length - 1];
         
@@ -166,7 +166,7 @@ function run() {
         
       }  
       
-      for(let i = 0; i < menuParents.length; i++) {
+      for(var i = 0; i < menuParents.length; i++) {
         removeClass(menuParents[i], "active");
         if(menuParents[i].contains(activeItem)){
           addClass(menuParents[i], "active");
@@ -179,10 +179,10 @@ function run() {
   //Animate + change state functions
 
   function getPos(elems) {  
-    let elemPos = [];
-    let curr = [];
+    var elemPos = [];
+    var curr = [];
     
-    for (let i = 0; i < elems.length; i++) {
+    for (var i = 0; i < elems.length; i++) {
       if (window.scrollY) {
         elemPos[i] = elems[i].getBoundingClientRect().top + window.scrollY;
         curr[i] = window.innerHeight + window.scrollY;
@@ -193,7 +193,7 @@ function run() {
       }
       if (curr[i] > (elemPos[i] + (elems[i].offsetHeight / 4))) {
         addClass(elems[i], "active");
-        let evt = createNewEvent("scrolled");
+        var evt = createNewEvent("scrolled");
         elems[i].dispatchEvent(evt);
       }
     }
@@ -203,43 +203,43 @@ function run() {
   function smoothScroll(evt) {
     evt.preventDefault();
         
-    let startElem = evt.currentTarget;  
+    var startElem = evt.currentTarget;  
     
     if(!startElem.getAttribute("href")){
       return;
     }
       
-    let id = startElem.getAttribute("href").match(/#/g);
+    var id = startElem.getAttribute("href").match(/#/g);
     
     // If href is not an ID but an URL, open URL instead
     if(!id) {    
-      let name = "_self";    
+      var name = "_self";    
       if (startElem.getAttribute("target")) {
         name = startElem.getAttribute("target");
       }    
-      let url = startElem.getAttribute("href");
+      var url = startElem.getAttribute("href");
       
       return window.open(url, name);
     }
     
     id = startElem.getAttribute("href").replace("#","");  
-    let targetElem = document.getElementById(id);  
-    let startPos = Math.round(startElem.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop));
-    let targetPos = Math.round(targetElem.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop));  
-    let len = Math.abs(startPos - targetPos);
+    var targetElem = document.getElementById(id);  
+    var startPos = Math.round(startElem.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop));
+    var targetPos = Math.round(targetElem.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop));  
+    var len = Math.abs(startPos - targetPos);
     
     //Can play with timeinterval and parts, total animation timing is: time * parts
-    let timeinterval = 10;
-    let parts = 80;
+    var timeinterval = 10;
+    var parts = 80;
     
-    let inc = Math.round(len / parts);
-    let sum = 0;
+    var inc = Math.round(len / parts);
+    var sum = 0;
       
-    let url = window.location.href;  
+    var url = window.location.href;  
     url = url.substring(0, url.indexOf("#"));  
     url += "#" + id;    
     
-    let scrollFunc = setInterval(
+    var scrollFunc = setInterval(
       function() {
         if (Math.abs(sum) >= len) {        
           clearInterval(scrollFunc);        
@@ -260,23 +260,23 @@ function run() {
   }
 
   function toggleClass(evt) {
-    let elem = evt.currentTarget;
-    let myClass = elem.getAttribute("data-toggle");
+    var elem = evt.currentTarget;
+    var myClass = elem.getAttribute("data-toggle");
     
     if (elem.getAttribute("data-target")) {
-      let elems = [];
+      var elems = [];
       elems = document.querySelectorAll(elem.getAttribute("data-target"));
       
       if (elems.length > 0) {
-        for (let i = 0; i < elems.length; i++) {
+        for (var i = 0; i < elems.length; i++) {
           if (elems[i].classList) {
             elems[i].classList.toggle(myClass);
-            let evt = createNewEvent("active");
+            var evt = createNewEvent("active");
             elems[i].dispatchEvent(evt);
           }
           else {
-            let arr = elems[i].className.split(" ");
-            let ind = arr.indexOf(myClass);
+            var arr = elems[i].className.split(" ");
+            var ind = arr.indexOf(myClass);
             
             if (ind >= 0) {
               arr.splice(ind, 1);
@@ -284,7 +284,7 @@ function run() {
             else {
               arr.push(myClass);
               elems[i].className = arr.join(" ");
-              let evt = createNewEvent("active");
+              var evt = createNewEvent("active");
               elems[i].dispatchEvent(evt);
             }
           }
@@ -299,8 +299,8 @@ function run() {
     }
     
     else {
-      let arr = elem.className.split(" ");
-      let i = arr.indexOf(myClass);
+      var arr = elem.className.split(" ");
+      var i = arr.indexOf(myClass);
       
       if (i >= 0) {
         arr.splice(i, 1);
@@ -313,25 +313,25 @@ function run() {
   }
 
   function animateCounter(evt) {
-    let elem = evt.currentTarget;
-    let numb = parseInt(elem.innerText);
+    var elem = evt.currentTarget;
+    var numb = parseInt(elem.innerText);
     
     //Can play with timeinterval and parts, animation duration is equals to: time * parts
-    let timeinterval = 50;
-    let parts = 25;
+    var timeinterval = 50;
+    var parts = 25;
     
-    let inc = Math.round(numb / parts);
-    let sum = 0;
+    var inc = Math.round(numb / parts);
+    var sum = 0;
     
     //Check if element has "counting" class
-    let arr = elem.className.split(" ");
-    let ind = arr.indexOf("counting");
+    var arr = elem.className.split(" ");
+    var ind = arr.indexOf("counting");
     
     //If element doesn't has "counting" class play animation
     if (ind == -1) {
       //Add a "counting" class to the element and start counter
       addClass(elem, "counting");
-      let timer = setInterval(
+      var timer = setInterval(
         function(){
           if (sum >= numb) {          
             sum = numb;
@@ -350,26 +350,26 @@ function run() {
   }
 
   function activeState(evt) {
-    let elem = evt.currentTarget;
-    let myClass = "active";
+    var elem = evt.currentTarget;
+    var myClass = "active";
     
     return addClass(elem, myClass);
   }
 
   function inactiveState(evt) {
-    let elem = evt.currentTarget;
-    let myClass = "active";
+    var elem = evt.currentTarget;
+    var myClass = "active";
     
     return removeClass(elem, myClass);
   }
 
   function typeIt(evt) {
-    let elem = evt.currentTarget;
-    let str = elem.innerText;  
-    let span = document.createElement("span");  
-    let thisStyles = getComputedStyle(elem, null);
-    let spanWidth = (Math.round(parseInt(thisStyles.fontSize.replace("px"))/2)) + "px";
-    let borderWidth = (Math.round(parseInt(thisStyles.fontSize.replace("px"))/5)) + "px"; 
+    var elem = evt.currentTarget;
+    var str = elem.innerText;  
+    var span = document.createElement("span");  
+    var thisStyles = getComputedStyle(elem, null);
+    var spanWidth = (Math.round(parseInt(thisStyles.fontSize.replace("px"))/2)) + "px";
+    var borderWidth = (Math.round(parseInt(thisStyles.fontSize.replace("px"))/5)) + "px"; 
         
     span.style.display = "inline-block";
     span.style.width = spanWidth;
@@ -377,12 +377,12 @@ function run() {
     span.style.borderBottomWidth = borderWidth;  
     span.style.marginLeft = "10px";
 
-    let time = (str.length < 30)?100:50;
-    let i = 0;
-    let typeStr = "";
+    var time = (str.length < 30)?100:50;
+    var i = 0;
+    var typeStr = "";
     elem.innerText = " ";
       
-    let typer = setInterval(
+    var typer = setInterval(
       function() {
         if(i == str.length) {        
           elem.innerText = str;

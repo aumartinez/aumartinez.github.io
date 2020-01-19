@@ -19,6 +19,7 @@ body{
   line-height: 1.6;
   background-color: #fff;
   color: #000;
+  overflow-x: hidden;
 }
 
 header,
@@ -133,8 +134,7 @@ a.btn-primary:hover {
 /* Header */
 
 header {
-  min-height: 100px;
-  overflow: hidden;
+  min-height: 100px;  
 }
 
 /* Navigation */
@@ -150,6 +150,76 @@ header {
 .navbar-default .navbar-collapse {
   background-color: transparent;
   border: none;
+}
+
+.navbar-toggle {
+  border-radius: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-toggle.active {
+  position: fixed;
+  right: 15px;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+}
+
+.navbar-toggle .icon-bar {
+  height: 3px;
+  transition: all 0.2s;
+  border-radius: 0;
+}
+
+.navbar-toggle.active .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 0 5px;
+}
+
+.navbar-toggle.active .middle-bar {
+  opacity: 0;
+}
+
+.navbar-toggle.active .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 5px 0;
+}
+
+.navbar-toggle .bottom-bar,
+.navbar-toggle .top-bar {
+  transform: rotate(0);
+  transform-origin: 0;
+}
+
+.navbar-toggle .middle-bar {
+  opacity: 1;
+}
+
+.navbar-collapse.sidenavbar {
+  position: fixed;
+  z-index: 1;
+  width: 0;
+  height: 100vh;
+  background-color: #404040;
+  right: -30px;
+  top: 0;
+  transition: all 0.2s;  
+}
+
+.navbar-collapse.sidenavbar.active {
+  right: 0;
+  width: 50vh;
+}
+
+.navbar-nav {
+  margin-top: 55px;
 }
 
 /* Content */ 
@@ -186,6 +256,21 @@ header {
   
   /* Header */
   
+  /* Navigation */
+  
+  .navbar-nav {
+    margin-top: 0;
+  }
+  
+  .navbar-collapse.sidenavbar {
+    position: relative;
+    width: auto;
+    height: auto;
+    right: auto;
+    z-index: 0;
+    top: auto;
+    background-color: transparent;
+  }  
   
   /* Content */
   
