@@ -1,6 +1,6 @@
 /* CSS */
 @font-face {
-  font-family: Acherus;
+  font-family: "Acherus";
   src: url("../fonts/acherus_grotesque_-_regular.woff");
 }
 
@@ -16,7 +16,7 @@ body{
   font-family: "Acherus", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #dff6f0;
+  background-color: #fff;
 }
 
 header,
@@ -26,39 +26,9 @@ footer {
   display: block;
 }
 
-.container {
-  width: 100%;
-}
-
-.row {
-  float: none;
-  clear: both;
-}
-
-.row:before,
-.row:after,
-.row::before,
-.row::after {
-  content: "";
-  display: block;  
-  clear: both;
-}
-
-div[class*="col-"] {
-  padding-left: 15px;
-  padding-right: 15px;
-  float: left;
-  box-sizing: border-box;
-}
 
 ul {
   padding-left: 40px;  
-}
-
-.col-5,
-.col-10 {
-  width: 100%;
-  display: block;
 }
 
 div[class*="col-"].col-center {
@@ -165,182 +135,23 @@ header {
   overflow: hidden;
 }
 
-header .header {  
-  padding-top: 15px;
-  padding-bottom: 15px;
-  height: 100px;
-  box-sizing: border-box;
-}
-
-header .header img {
-  width: auto;
-  height: 65px;
-}
-
-.toggle-btn {
-  width: 45px;
-  height: 45px;
-  float: right;
-  margin-top: 10px;
-  border: none;
-}
-
-.toggle-btn:hover {
-  cursor: pointer;
-}
-
-.toggle-btn span {
-  font-size: 36px;
-  color: #fff;
-}
-
 /* Navigation */
 
-header nav {
-  margin-right: -15px;
-  margin-left: -15px;
-  background-color: #4d80e4;  
-  display: none;
-}
 
-header nav.active {  
-  display: block;
-}
-
-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 15px 0;
-  text-align: center;
-}
-
-header nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 0;
-  display: block;
-}
-
-header nav ul li a:hover {
-  background-color: #2e279d;
-}
-
-section.body {
-  padding: 45px 0;
-}
-
-section > div {
-  padding: 15px 0;
-}
-
-section div[class*="col-"] {
-  padding-top: 15px;
-  padding-bottom: 15px;  
-}
 
 /* Content */ 
 
-#home .bg-hero {
-  background-image: url("../img/hero-landing.png");
-  background-size: cover;
-  background-position: 35% 0;
-}
-
-#about .bg-hero {
-  background-image: url("../img/hero-about.png");
-  background-size: cover;
-  background-position: 35% 0;
-}
-
-#contact .bg-hero {
-  background-image: url("../img/hero-contact.png");
-  background-size: cover;
-  background-position: 35% 0;
-}
 
 /* Footer */
 
-footer .pre-bottom {
-  padding: 45px 0;
-  background-image: url("../img/bg-footer.png");
-  background-size: cover;
-  background-position: top right; 
-}
 
-.pre-bottom h2 {
-  margin-bottom: 25px;
-}
-
-footer .bottom {
-  padding: 15px 0 40px;
-}
-
-footer nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;  
-  text-align: center;
-}
-
-footer nav ul li {
-  display: inline-block;
-}
-
-footer nav ul li a {
-  text-decoration: none;
-}
-
-footer nav ul li a:hover {
-  text-decoration: underline;
-}
 
 /* Form */
 
-form .form-group {
-  clear: both;
-  float: none;
-  padding: 15px 0;
-}
-
-.form-group textarea,
-.form-group input,
-.form-group label {
-  display: block;
-  width: 100%;  
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.form-group label {
-  margin-bottom: 5px;
-}
-
-.form-group input {
-  height: 30px;
-}
-
-.form-group textarea {
-  height: 150px;
-  padding: 15px;
-}
   
 @media (min-width: 768px) {
   
   /* Global */
-  
-  .container {
-    max-width: 1170px;    
-    margin: 0 auto;
-  }
-  
-  .col-5 {
-    width: 50%;
-    display: block;
-  }
-  
-  .visible-xs {
-    display: none;
-  }
   
   h1 {
     font-size: 55px;
@@ -362,61 +173,11 @@ form .form-group {
   
   /* Header */
   
-  header .header {
-    display: inline-block;
-  }
-  
-  header nav {
-    display: block;
-    float: right;
-    background-color: transparent;
-    margin: 0;
-  }
-  
-  header nav ul {
-    display: table;
-    padding: 0;
-  }
-  
-  header nav ul li {
-    display: table-cell;
-    vertical-align: middle;
-    height: 100px;
-  }
-  
-  header nav ul li a {
-    padding: 0 15px;
-    height: 45px;
-    box-sizing: border-box;
-    line-height: 45px;
-  }
   
   /* Content */
   
-  #index .bg-hero {
-    background-position: top center;
-  }
-  
-  #about .bg-hero {
-    background-position: top center;
-  }
-  
-  #contact .bg-hero {
-    background-position: top center;
-  }
-  
-  section.content {
-    padding: 45px 0;
-  }
-  
+    
   /* Footer */
   
-  footer nav ul {
-    text-align: right;
-    margin: 1em 0 1.3em;
-  }
   
-  footer nav ul li a {
-    padding: 0 5px;
-  }
 }
