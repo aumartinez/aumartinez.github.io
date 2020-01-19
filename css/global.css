@@ -65,7 +65,7 @@ h3 {
 h1,
 h2,
 h3 {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 p {
@@ -79,11 +79,11 @@ p {
 }
 
 .bg-secondary {
-  background-color: #4d80e4;
+  background-color: #317ea2;
 }
 
 .bg-tertiary {
-  background-color: #2e279d;
+  background-color: #404040;
 }
 
 .bg-white {
@@ -97,12 +97,12 @@ a.color-primary,
 
 a.color-secondary,
 .color-secondary {
-  color: #4d80e4;
+  color: #317ea2;
 }
 
 a.color-tertiary,
 .color-tertiary {
-  color: #2e279d;
+  color: #404040;
 }
 
 a.color-white,
@@ -126,7 +126,7 @@ a.btn-primary,
 
 .btn-primary:hover,
 a.btn-primary:hover {
-  background-color: #4d80e4;
+  background-color: #317ea2;
   cursor: pointer;
 }
 
@@ -139,7 +139,18 @@ header {
 
 /* Navigation */
 
+.navbar {
+  border: none;
+}
 
+.navbar-default {
+  background-color: transparent;
+}
+
+.navbar-default .navbar-collapse {
+  background-color: transparent;
+  border: none;
+}
 
 /* Content */ 
 
@@ -178,6 +189,16 @@ header {
   
   /* Content */
   
+  section.sec-cont {
+    height: 100vh;    
+  }
+  
+  section div[class*="col-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
     
   /* Footer */
   
