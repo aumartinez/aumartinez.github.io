@@ -3,8 +3,6 @@ window.addEventListener("load", run, false);
 function run() {  
   var elems = document.querySelectorAll("body *");
   
-  activeMenu();
-  
   //Filter elements
   var scrollElems = filterElems(elems, "data-animate", "scroll");
   var linkElems = filterElems(elems, "data-animate", "link-scroll");
@@ -14,17 +12,19 @@ function run() {
   var activeElems = filterElems(elems, "data-toggle", "active");  
   var hoverElems = filterElems(elems, "data-animate", "hover");
   var typeElems = filterElems(elems, "data-animate", "type");
-      
+  var inviewElems = filterElems(elems, "data-animate", "inview");
+        
   //Add listeners  
   addEventListenerToList(linkElems, "click", function(){smoothScroll(event);});
   addEventListenerToList(activeElems, "click", function(){toggleClass(event);});
   addEventListenerToList(menuElems, "click", function(){smoothScroll(event);});  
   addEventListenerToList(hoverElems, "mouseover", function(){activeState(event);});
   addEventListenerToList(hoverElems, "mouseout", function(){inactiveState(event);});    
-  addEventListenerToList(countElems, "scrolled", function(){animateCounter(event);});
+  addEventListenerToList(countElems, "scrolled", function(){animateCounter(event);});    
+  addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
+  addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
+  addEventListenerToListOnce(typeElems, "scrolled", function(){typeIt(event);});
   
-  addEventListenerToListOnce(typeElems, "scrolled", function(){typeIt(event);});  
-    
   //Initial status on page refresh
   (scrollElems.length > 0)?getPos(scrollElems):false;
   (countElems.length > 0)?getPos(countElems):false;
@@ -33,7 +33,9 @@ function run() {
   //Window listeners
   window.addEventListener("scroll", function(){getPos(scrollElems);}, false);
   window.addEventListener("scroll", function(){getPos(countElems);}, false);
-  window.addEventListener("scroll", function(){getPos(typeElems);}, false);  
+  window.addEventListener("scroll", function(){getPos(typeElems);}, false); 
+  window.addEventListener("scroll", function(){inView(inviewElems);}, false);   
+  
   //Helpers
   function filterElems(elems, attribute, data) {
     var arr = [];
@@ -128,54 +130,7 @@ function run() {
       }
     }
   }
-
-  function activeMenu() {
-    var curr = "";  
-    curr = window.location.href;
-    
-    var menu = document.querySelector("ul.navbar-nav");
-    var menuParents = menu.children;
-    var menuItems = [];  
-    var activeItem;
-    
-    curr = curr.split("/");
-    curr = curr[curr.length - 1];
-    if(curr.match("#")){
-      curr = curr.split("#");
-    }
-    
-    if(menu){
-      menuItems = menu.querySelectorAll("a");
-      
-      for(var i = 0; i < menuItems.length; i++) {
-        var str = menuItems[i].getAttribute("href");
-        str = str.split("/");
-        str = str[str.length - 1];
-        
-        if(typeof curr == "string"){
-          if (str == curr){
-            activeItem = menuItems[i];          
-          }
-        }
-        if(typeof curr == "object"){
-          str = str.split("#");        
-          if (str[1] == curr[1] || str[0] == curr[0]){
-            activeItem = menuItems[i];
-          }
-        }
-        
-      }  
-      
-      for(var i = 0; i < menuParents.length; i++) {
-        removeClass(menuParents[i], "active");
-        if(menuParents[i].contains(activeItem)){
-          addClass(menuParents[i], "active");
-        }
-      }
-      
-    }
-  }
-
+  
   //Animate + change state functions
 
   function getPos(elems) {  
@@ -198,6 +153,31 @@ function run() {
       }
     }
     
+  }
+  
+  
+  function inView(elems) {
+    var elemPosY;    
+    var curr;
+    var evt;    
+    var elemH;
+    
+    for (var i = 0, len = elems.length; i < len; i++) {      
+      elemH = parseInt(getComputedStyle(elems[i]).height, 10);
+      elemPosY = elems[i].getBoundingClientRect().top + document.documentElement.scrollTop;            
+      curr = window.innerHeight + document.documentElement.scrollTop;
+      
+      if (curr > elemPosY) {
+        //Elem is in the current view            
+        evt = createNewEvent("inview");
+        elems[i].dispatchEvent(evt);        
+      }      
+      else {        
+        evt = createNewEvent("outofview");
+        elems[i].dispatchEvent(evt);
+      }
+    }
+        
   }
 
   function smoothScroll(evt) {

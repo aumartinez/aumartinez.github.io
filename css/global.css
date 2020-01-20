@@ -267,7 +267,12 @@ section.sec-cont {
 
 /* Footer */
 
-
+footer.parallax.active {
+  position: fixed;
+  width: 100%;
+  z-index: 0;
+  bottom: 0;
+}
 
 /* Form */
 
