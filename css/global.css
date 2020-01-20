@@ -20,6 +20,7 @@ body{
   background-color: #fff;
   color: #000;
   overflow-x: hidden;
+  padding-top: 60px;
 }
 
 header,
@@ -91,6 +92,10 @@ p {
   background-color: #fff;
 }
 
+.bg-black {
+  background-color: #000; 
+}
+
 a.color-primary,
 .color-primary {
   color: #46b3e6;
@@ -133,6 +138,13 @@ a.btn-primary:hover {
 
 /* Header */
 
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;  
+  top: 0;
+}
+
 header::after {
   content: "";
   width: 100%;
@@ -166,6 +178,8 @@ header::after {
 .navbar-header {
   height: 50px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar-brand {
@@ -245,6 +259,11 @@ header::after {
 
 /* Content */ 
 
+section.sec-cont {
+  height: 100vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 
 /* Footer */
 
@@ -278,7 +297,7 @@ header::after {
   /* Header */
   
   header {
-    min-height: 100px;
+    
   }
   
   /* Navigation */
@@ -289,6 +308,10 @@ header::after {
   
   .navbar-nav {
     margin-top: 0;
+  }
+  
+  .navbar>.container .navbar-brand {
+    margin: 0;
   }
   
   .navbar-collapse.sidenavbar {
