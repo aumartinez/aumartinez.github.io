@@ -13,6 +13,9 @@ function run() {
   var hoverElems = filterElems(elems, "data-animate", "hover");
   var typeElems = filterElems(elems, "data-animate", "type");
   var inviewElems = filterElems(elems, "data-animate", "inview");
+  
+  var elemPosY = [];
+  var elemH = [];
         
   //Add listeners  
   addEventListenerToList(linkElems, "click", function(){smoothScroll(event);});
@@ -156,26 +159,27 @@ function run() {
   }
   
   
-  function inView(elems) {
-    var elemPosY;    
+  function inView(elems) {    
     var curr;
-    var evt;    
-    var elemH;
+    var evt;
+    var zone;
     
     for (var i = 0, len = elems.length; i < len; i++) {      
-      elemH = parseInt(getComputedStyle(elems[i]).height, 10);
-      elemPosY = elems[i].getBoundingClientRect().top + document.documentElement.scrollTop;            
+      elemH[i] = elems[i].getBoundingClientRect().height;
+      elemPosY[i] = elems[i].getBoundingClientRect().top + document.documentElement.scrollTop;            
       curr = window.innerHeight + document.documentElement.scrollTop;
+      zone = elemH[i] + elemPosY[i];
       
-      if (curr > elemPosY) {
+      if (curr > elemPosY[i] && document.documentElement.scrollTop < zone) {
         //Elem is in the current view            
         evt = createNewEvent("inview");
-        elems[i].dispatchEvent(evt);        
+        elems[i].dispatchEvent(evt);
       }      
-      else {        
+      else {
         evt = createNewEvent("outofview");
         elems[i].dispatchEvent(evt);
       }
+        
     }
         
   }
