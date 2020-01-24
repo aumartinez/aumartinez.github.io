@@ -258,14 +258,23 @@ header::after {
 
 /* Content */ 
 
-section.sec-cont {
-  height: 100vh;
+section.sec-cont {  
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 section.sec-cont.active {
-  padding-top: 105px;
+  
+}
+
+section div.row div[class*="col-"] {
+  display: table;
+  height: 100vh;
+}
+
+section div.row div.wrapper {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* Footer */
@@ -333,13 +342,6 @@ footer {
   
   section.sec-cont {
      
-  }
-  
-  section div[class*="col-"] {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
   }
     
   /* Footer */

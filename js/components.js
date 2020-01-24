@@ -3,6 +3,8 @@ window.addEventListener("load", run, false);
 function run() {  
   var elems = document.querySelectorAll("body *");
   
+  activeMenu();
+  
   //Filter elements
   var scrollElems = filterElems(elems, "data-animate", "scroll");
   var linkElems = filterElems(elems, "data-animate", "link-scroll");
@@ -27,6 +29,7 @@ function run() {
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
   addEventListenerToListOnce(typeElems, "scrolled", function(){typeIt(event);});
+    
   
   //Initial status on page refresh
   (scrollElems.length > 0) ? getPos(scrollElems) : false;
@@ -132,6 +135,53 @@ function run() {
         arr.splice(i, 1);
         elem.className = arr.join(" ");
       }
+    }
+  }
+  
+  function activeMenu() {
+    let curr = "";  
+    curr = window.location.href;
+    
+    let menu = document.querySelector("ul.navbar-nav");
+    let menuParents = menu.children;
+    let menuItems = [];  
+    let activeItem;
+    
+    curr = curr.split("/");
+    curr = curr[curr.length - 1];
+    if(curr.match("#")){
+      curr = curr.split("#");
+    }
+    
+    if(menu){
+      menuItems = menu.querySelectorAll("a");
+      
+      for(let i = 0; i < menuItems.length; i++) {
+        let str = menuItems[i].getAttribute("href");
+        str = str.split("/");
+        str = str[str.length - 1];
+        
+        if(typeof curr == "string"){
+          if (str == curr){
+            activeItem = menuItems[i];          
+          }
+        }
+        if(typeof curr == "object"){
+          str = str.split("#");        
+          if (str[1] == curr[1] || str[0] == curr[0]){
+            activeItem = menuItems[i];
+          }
+        }
+        
+      }  
+      
+      for(let i = 0; i < menuParents.length; i++) {
+        removeClass(menuParents[i], "active");
+        if(menuParents[i].contains(activeItem)){
+          addClass(menuParents[i], "active");
+        }
+      }
+      
     }
   }
   
