@@ -29,15 +29,16 @@ function run() {
   addEventListenerToListOnce(typeElems, "scrolled", function(){typeIt(event);});
   
   //Initial status on page refresh
-  (scrollElems.length > 0)?getPos(scrollElems):false;
-  (countElems.length > 0)?getPos(countElems):false;
-  (typeElems.length > 0)?getPos(typeElems):false;
+  (scrollElems.length > 0) ? getPos(scrollElems) : false;
+  (countElems.length > 0) ? getPos(countElems) : false;
+  (typeElems.length > 0) ? getPos(typeElems) : false;
+  (inviewElems.length > 0) ? inView(inviewElems) : false;
   
   //Window listeners
   window.addEventListener("scroll", function(){getPos(scrollElems);}, false);
   window.addEventListener("scroll", function(){getPos(countElems);}, false);
-  window.addEventListener("scroll", function(){getPos(typeElems);}, false); 
-  window.addEventListener("scroll", function(){inView(inviewElems);}, false);   
+  window.addEventListener("scroll", function(){getPos(typeElems);}, false);   
+  window.addEventListener("scroll", function(){inView(inviewElems);}, false);
   
   //Helpers
   function filterElems(elems, attribute, data) {
@@ -159,13 +160,13 @@ function run() {
   }
   
   
-  function inView(elems) {    
+  function inView(elems, treshold = 1) {
     var curr;
     var evt;
     var zone;
     
     for (var i = 0, len = elems.length; i < len; i++) {      
-      elemH[i] = elems[i].getBoundingClientRect().height;
+      elemH[i] = elems[i].getBoundingClientRect().height * treshold;
       elemPosY[i] = elems[i].getBoundingClientRect().top + document.documentElement.scrollTop;            
       curr = window.innerHeight + document.documentElement.scrollTop;
       zone = elemH[i] + elemPosY[i];

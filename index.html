@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/global.css" type="text/css" />
     <link rel="stylesheet" href="css/animations.css" type="text/css" />
 	</head>
-	<body>
+	<body id="top">
     <header>
       <div class="bg-white">
         <div class="container">
@@ -35,13 +35,13 @@
                   </div>
                   
                   <div class="navbar-collapse sidenavbar" id="navbar">
-                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#">Home</a></li>
+                     <ul class="nav navbar-nav navbar-right" data-animate="navbar-scroll">
+                      <li><a href="#top">Home</a></li>
                       <li><a href="#about">About me</a></li>
                       <li><a href="#tools">Tools</a></li>
                       <li><a href="#services">Services</a></li>
                       <li><a href="#projects">Projects</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="#contact.html">Contact</a></li>
                     </ul>
                   </div>
                 </div>          
@@ -53,7 +53,7 @@
     </header>
 		
 		
-    <section id="intro" class="body sec-cont">
+    <section id="intro" class="body sec-cont" data-animate="inview">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -85,7 +85,7 @@
       </div>
     </section>
     
-    <section id="tools" class="sec-cont">
+    <section id="tools" class="sec-cont" data-animate="inview">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -101,7 +101,7 @@
       </div>
     </section>
     
-    <section id="services" class="sec-cont">
+    <section id="services" class="sec-cont" data-animate="inview">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -117,7 +117,7 @@
       </div>
     </section>
     
-    <section id="projects" class="sec-cont">
+    <section id="projects" class="sec-cont" data-animate="inview">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -133,7 +133,23 @@
       </div>
     </section>
     
-		<footer class="bg-black parallax">
+    <section id="contact" class="sec-cont" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>
+              Contactyoutu
+            </h1>
+            
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+		<footer class="bg-black" data-animate="inview">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">          
