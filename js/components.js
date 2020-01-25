@@ -5,8 +5,7 @@ function run() {
   
   activeMenu();
   
-  //Filter elements
-  var scrollElems = filterElems(elems, "data-animate", "scroll");
+  //Filter elements  
   var linkElems = filterElems(elems, "data-animate", "link-scroll");
   var menu = filterElems(elems, "data-animate", "navbar-scroll");
   var menuElems = pullMenuElems(menu);
@@ -24,23 +23,18 @@ function run() {
   addEventListenerToList(activeElems, "click", function(){toggleClass(event);});
   addEventListenerToList(menuElems, "click", function(){smoothScroll(event);});  
   addEventListenerToList(hoverElems, "mouseover", function(){activeState(event);});
-  addEventListenerToList(hoverElems, "mouseout", function(){inactiveState(event);});    
-  addEventListenerToList(countElems, "scrolled", function(){animateCounter(event);});    
+  addEventListenerToList(hoverElems, "mouseout", function(){inactiveState(event);});
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
-  addEventListenerToListOnce(typeElems, "scrolled", function(){typeIt(event);});
-    
   
-  //Initial status on page refresh
-  (scrollElems.length > 0) ? getPos(scrollElems) : false;
+  //Initial status on page refresh  
   (countElems.length > 0) ? getPos(countElems) : false;
   (typeElems.length > 0) ? getPos(typeElems) : false;
   (inviewElems.length > 0) ? inView(inviewElems) : false;
   
-  //Window listeners
-  window.addEventListener("scroll", function(){getPos(scrollElems);}, false);
-  window.addEventListener("scroll", function(){getPos(countElems);}, false);
-  window.addEventListener("scroll", function(){getPos(typeElems);}, false);   
+  //Window listeners  
+  window.addEventListener("scroll", function(){inView(countElems);}, false);
+  window.addEventListener("scroll", function(){inView(typeElems);}, false);   
   window.addEventListener("scroll", function(){inView(inviewElems);}, false);
   
   //Helpers
@@ -186,30 +180,6 @@ function run() {
   }
   
   //Animate + change state functions
-
-  function getPos(elems) {  
-    var elemPos = [];
-    var curr = [];
-    
-    for (var i = 0; i < elems.length; i++) {
-      if (window.scrollY) {
-        elemPos[i] = elems[i].getBoundingClientRect().top + window.scrollY;
-        curr[i] = window.innerHeight + window.scrollY;
-      }
-      else{
-        elemPos[i] = elems[i].getBoundingClientRect().top + document.documentElement.scrollTop;
-        curr[i] = window.innerHeight + document.documentElement.scrollTop;
-      }
-      if (curr[i] > (elemPos[i] + (elems[i].offsetHeight / 4))) {
-        addClass(elems[i], "active");
-        var evt = createNewEvent("scrolled");
-        elems[i].dispatchEvent(evt);
-      }
-    }
-    
-  }
-  
-  
   function inView(elems, treshold = 1) {
     var curr;
     var evt;
