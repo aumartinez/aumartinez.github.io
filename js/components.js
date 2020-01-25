@@ -136,6 +136,8 @@ function run() {
     var activeWin = "";  
     activeWin = window.location.href;
     
+    console.log(activeWin);
+    
     var menu = document.querySelector("ul.navbar-nav");
     var menuParents = menu.children;
     var menuItems = [];  
