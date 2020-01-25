@@ -269,7 +269,7 @@ section.sec-cont.active {
 
 section div.row div[class*="col-"] {
   display: table;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 section div.row div.wrapper {
