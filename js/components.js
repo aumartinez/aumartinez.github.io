@@ -133,43 +133,43 @@ function run() {
   }
   
   function activeMenu() {
-    let curr = "";  
-    curr = window.location.href;
+    var activeWin = "";  
+    activeWin = window.location.href;
     
-    let menu = document.querySelector("ul.navbar-nav");
-    let menuParents = menu.children;
-    let menuItems = [];  
-    let activeItem;
+    var menu = document.querySelector("ul.navbar-nav");
+    var menuParents = menu.children;
+    var menuItems = [];  
+    var activeItem;
     
-    curr = curr.split("/");
-    curr = curr[curr.length - 1];
-    if(curr.match("#")){
-      curr = curr.split("#");
+    activeWin = activeWin.split("/");
+    activeWin = activeWin[activeWin.length - 1];
+    if(activeWin.match("#")){
+      activeWin = activeWin.split("#");
     }
     
     if(menu){
       menuItems = menu.querySelectorAll("a");
       
-      for(let i = 0; i < menuItems.length; i++) {
-        let str = menuItems[i].getAttribute("href");
+      for(var i = 0; i < menuItems.length; i++) {
+        var str = menuItems[i].getAttribute("href");
         str = str.split("/");
         str = str[str.length - 1];
         
-        if(typeof curr == "string"){
-          if (str == curr){
+        if(typeof activeWin == "string"){
+          if (str == activeWin){
             activeItem = menuItems[i];          
           }
         }
-        if(typeof curr == "object"){
+        if(typeof activeWin == "object"){
           str = str.split("#");        
-          if (str[1] == curr[1] || str[0] == curr[0]){
+          if (str[1] == activeWin[1] || str[0] == activeWin[0]){
             activeItem = menuItems[i];
           }
         }
         
       }  
       
-      for(let i = 0; i < menuParents.length; i++) {
+      for(var i = 0; i < menuParents.length; i++) {
         removeClass(menuParents[i], "active");
         if(menuParents[i].contains(activeItem)){
           addClass(menuParents[i], "active");
