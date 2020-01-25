@@ -133,46 +133,38 @@ function run() {
   }
   
   function activeMenu() {
-    var activeWin = "";
-    activeWin = window.location.href;
-    
+    var activeWin = window.location.href;
     var menu = document.querySelector("ul.navbar-nav");
-    var menuParents = menu.children;
-    var menuItems = [];  
+    var menuItems = menu.children;
     var activeItem;
     
     activeWin = activeWin.split("/");
-    activeWin = activeWin[activeWin.length - 1];
-    if(activeWin.match("#")){
+    activeWin = activeWin[activeWin.length - 1];    
+    
+    if (activeWin.indexOf("#") > 0) {
       activeWin = activeWin.split("#");
+      activeWin = activeWin[activeWin.length - 1];
     }
     
     if(menu){
-      menuItems = menu.querySelectorAll("a");
+      var menuLinks = menu.querySelectorAll("a");
       
-      for(var i = 0; i < menuItems.length; i++) {
-        var str = menuItems[i].getAttribute("href");
+      for(var i = 0; i < menuLinks.length; i++) {
+        var str = menuLinks[i].getAttribute("href");
         str = str.split("/");
         str = str[str.length - 1];
+        str = str.substring(str.indexOf("#") + 1);
         
-        if(typeof activeWin == "string"){
-          if (str == activeWin){
-            activeItem = menuItems[i];          
-          }
-        }
-        if(typeof activeWin == "object"){
-          str = str.split("#");        
-          if (str[1] == activeWin[1] || str[0] == activeWin[0]){
-            activeItem = menuItems[i];
-          }
+        if (str == activeWin) {
+          activeItem = menuLinks[i];
         }
         
       }  
       
-      for(var i = 0; i < menuParents.length; i++) {
-        removeClass(menuParents[i], "active");
-        if(menuParents[i].contains(activeItem)){
-          addClass(menuParents[i], "active");
+      for(var i = 0; i < menuItems.length; i++) {
+        removeClass(menuItems[i], "active");
+        if(menuItems[i].contains(activeItem)){
+          addClass(menuItems[i], "active");
         }
       }
       
