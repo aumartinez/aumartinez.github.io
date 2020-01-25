@@ -133,7 +133,7 @@ function run() {
   }
   
   function activeMenu() {
-    var activeWin = "";  
+    var activeWin = "";
     activeWin = window.location.href;
     
     var menu = document.querySelector("ul.navbar-nav");
