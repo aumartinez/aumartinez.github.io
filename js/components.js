@@ -136,8 +136,6 @@ function run() {
     var activeWin = "";  
     activeWin = window.location.href;
     
-    console.log(activeWin);
-    
     var menu = document.querySelector("ul.navbar-nav");
     var menuParents = menu.children;
     var menuItems = [];  
@@ -229,7 +227,8 @@ function run() {
       return window.open(url, name);
     }
     
-    id = startElem.getAttribute("href").replace("#","");  
+    id = startElem.getAttribute("href");  
+    id = id.substring(id.indexOf("#") + 1);
     var targetElem = document.getElementById(id);  
     var startPos = Math.round(startElem.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop));
     var targetPos = Math.round(targetElem.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop));  
