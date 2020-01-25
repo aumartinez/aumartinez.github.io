@@ -139,21 +139,23 @@ function run() {
     var activeItem;
     
     activeWin = activeWin.split("/");
-    activeWin = activeWin[activeWin.length - 1];    
-    
-    if (activeWin.indexOf("#") > 0) {
-      activeWin = activeWin.split("#");
-      activeWin = activeWin[activeWin.length - 1];
+    activeWin = activeWin[activeWin.length - 1];
+            
+    if (activeWin.indexOf("#") != -1) {
+      activeWin = activeWin.substring(activeWin.indexOf("#") + 1);
     }
     
-    if(menu){
+    if (menu) {
       var menuLinks = menu.querySelectorAll("a");
       
-      for(var i = 0; i < menuLinks.length; i++) {
+      for (var i = 0; i < menuLinks.length; i++) {
         var str = menuLinks[i].getAttribute("href");
         str = str.split("/");
         str = str[str.length - 1];
-        str = str.substring(str.indexOf("#") + 1);
+        
+        if (str.indexOf("#") != 1) {
+          str = str.substring(str.indexOf("#") + 1);  
+        }
         
         if (str == activeWin) {
           activeItem = menuLinks[i];
@@ -161,9 +163,13 @@ function run() {
         
       }  
       
-      for(var i = 0; i < menuItems.length; i++) {
+      for (var i = 0; i < menuItems.length; i++) {
         removeClass(menuItems[i], "active");
-        if(menuItems[i].contains(activeItem)){
+        if (activeWin == "") {
+          addClass(menuItems[i], "active");
+          return;
+        }
+        if (menuItems[i].contains(activeItem)){
           addClass(menuItems[i], "active");
         }
       }
