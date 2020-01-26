@@ -14,7 +14,7 @@ function loadlib () {
   var hoverElems = filterElems(elems, "data-animate", "hover");
   var typeElems = filterElems(elems, "data-animate", "type");
   var inviewElems = filterElems(elems, "data-animate", "inview");
-  var scrollElems = filterElems(elems, "data-animate", "scroll");
+  var inviewOnceElems = filterElems(elems, "data-animate", "once");
   
   var elemPosY = [];
   var elemH = [];
@@ -31,13 +31,13 @@ function loadlib () {
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
   
   //Initial status on page refresh  
-  (scrollElems.length > 0) ? inView(scrollElems, treshold) : false;
+  (inviewOnceElems.length > 0) ? inView(inviewOnceElems, treshold) : false;
   (countElems.length > 0) ? inView(countElems, treshold) : false;
   (typeElems.length > 0) ? inView(typeElems, treshold) : false;
   (inviewElems.length > 0) ? inView(inviewElems, treshold) : false;
     
   //Window listeners  
-  window.addEventListener("scroll", function(){inView(scrollElems, treshold);}, false);
+  window.addEventListener("scroll", function(){inView(inviewOnceElems, treshold);}, false);
   window.addEventListener("scroll", function(){inView(countElems, treshold);}, false);
   window.addEventListener("scroll", function(){inView(typeElems, treshold);}, false);   
   window.addEventListener("scroll", function(){inView(inviewElems, treshold);}, false);
