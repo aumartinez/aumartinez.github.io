@@ -2,7 +2,37 @@ window.addEventListener("load", myLib, false);
 window.addEventListener("load", themeSwitcher, false);
 
 function themeSwitcher() {
+  var themeIs = "off";
+  var switchControls = document.querySelectorAll("form.theme-switch-wrapper label input");
   
+  addEventListenerToList(switchControls, "click", function() {themeChange(event);});
+    
+  function themeChange(evt) {
+    themeIs = themeIs == "off" ? "on" : "off";    
+    themeIs == "on" ? addCSS() : removeCSS();   
+  }
+  
+  function addCSS() {
+    let css = document.createElement("link");
+    css.rel = "stylesheet";    
+    css.href = "css/dark-theme.css";
+    css.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(css);
+  }
+  
+  function removeCSS() {
+    var head = document.getElementsByTagName("head")[0];
+    head.removeChild(head.lastChild);
+  }
+  
+  function addEventListenerToList(list, evt, func) {
+    var arr = list;
+    if (arr) {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].addEventListener(evt, func, false);
+      }
+    }
+  }
 }
 
 function myLib() {  
