@@ -1,4 +1,9 @@
 window.addEventListener("load", myLib, false);
+window.addEventListener("load", themeSwitcher, false);
+
+function themeSwitcher {
+  
+}
 
 function myLib () {  
   var elems = document.querySelectorAll("body *");

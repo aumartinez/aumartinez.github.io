@@ -255,6 +255,65 @@ header::after {
   margin-top: 55px;
 }
 
+form.theme-switch-wrapper {
+  position: fixed;
+  z-index: 3;
+  max-width: 1170px;
+  margin: auto;
+  left: 0;
+  right: 30px;
+  top: 75px;  
+}
+
+form.theme-switch-wrapper label {
+  right: 0;
+  position: absolute;
+}
+
+.theme-switch {
+  display: table;
+  position: relative;    
+}
+
+.theme-switch input {
+  position: absolute;
+  right: -999em;
+}
+
+.slider {
+  background-color: #555;  
+  width: 60px;
+  height: 35px;
+  display: table-cell;
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "";
+  background-color: #fff;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  transition: all 0.2s;
+}
+
+.slider.round {
+  border-radius: 35px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.theme-switch input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(25px);
+}
+
 /* Content */ 
 
 section.sec-cont {  
