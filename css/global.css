@@ -177,7 +177,7 @@ header::after {
   height: 50px;
   overflow: hidden;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .navbar-brand {
@@ -187,7 +187,7 @@ header::after {
 
 .navbar-toggle {
   border-radius: 0;  
-  z-index: 2;
+  z-index: 3;
 }
 
 .navbar-toggle.active {
@@ -237,7 +237,7 @@ header::after {
 
 .navbar-collapse.sidenavbar {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   width: 0;
   height: 100vh;
   background-color: #404040;
@@ -252,17 +252,22 @@ header::after {
 }
 
 .navbar-nav {
-  margin-top: 55px;
+  margin-top: 60px;
 }
 
 form.theme-switch-wrapper {
   position: fixed;
-  z-index: 3;
+  z-index: 1;
   max-width: 1170px;
   margin: auto;
   left: 0;
   right: 30px;
   top: 75px;  
+}
+
+form.theme-switch-wrapper.mobile-wrapper {  
+  right: 75px;
+  top: 10px;
 }
 
 form.theme-switch-wrapper label {
