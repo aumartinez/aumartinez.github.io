@@ -1,8 +1,9 @@
-window.addEventListener("load", run, false);
+window.addEventListener("load", loadlib, false);
 
-function run() {  
+function loadlib () {  
   var elems = document.querySelectorAll("body *");
   
+  console.log("loaded");
   activeMenu();
   
   //Filter elements  
@@ -17,6 +18,7 @@ function run() {
   
   var elemPosY = [];
   var elemH = [];
+  var treshold = 1;
         
   //Add listeners  
   addEventListenerToList(linkElems, "click", function(){smoothScroll(event);});
@@ -35,7 +37,7 @@ function run() {
   //Window listeners  
   window.addEventListener("scroll", function(){inView(countElems);}, false);
   window.addEventListener("scroll", function(){inView(typeElems);}, false);   
-  window.addEventListener("scroll", function(){inView(inviewElems);}, false);
+  window.addEventListener("scroll", function(){inView(inviewElems, treshold);}, false);
   
   //Helpers
   function filterElems(elems, attribute, data) {
@@ -178,7 +180,7 @@ function run() {
   }
   
   //Animate + change state functions
-  function inView(elems, treshold = 1) {
+  function inView(elems, treshold) {
     var curr;
     var evt;
     var zone;
@@ -197,8 +199,7 @@ function run() {
       else {
         evt = createNewEvent("outofview");
         elems[i].dispatchEvent(evt);
-      }
-        
+      } 
     }
         
   }
