@@ -2,8 +2,7 @@ window.addEventListener("load", loadlib, false);
 
 function loadlib () {  
   var elems = document.querySelectorAll("body *");
-  
-  console.log("loaded");
+   
   activeMenu();
   
   //Filter elements  

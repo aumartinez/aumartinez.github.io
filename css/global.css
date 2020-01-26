@@ -266,12 +266,12 @@ section.sec-cont.active {
   
 }
 
-section .container > .row > div[class*="col-"] {
+section .wrap-helper {
   display: table;
   min-height: 100vh;
 }
 
-section div.row div.wrapper {
+section .wrapper {
   display: table-cell;
   vertical-align: middle;
 }
