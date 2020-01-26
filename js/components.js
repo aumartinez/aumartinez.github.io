@@ -26,7 +26,7 @@ function loadlib () {
   addEventListenerToList(menuElems, "click", function(){smoothScroll(event);});  
   addEventListenerToList(hoverElems, "mouseover", function(){activeState(event);});
   addEventListenerToList(hoverElems, "mouseout", function(){inactiveState(event);});
-  addEventListenerToList(scrollElems, "inview", function(){activeState(event);});
+  addEventListenerToList(inviewOnceElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
   
