@@ -14,6 +14,7 @@ function loadlib () {
   var hoverElems = filterElems(elems, "data-animate", "hover");
   var typeElems = filterElems(elems, "data-animate", "type");
   var inviewElems = filterElems(elems, "data-animate", "inview");
+  var scrollElems = filterElems(elems, "data-animate", "scroll");
   
   var elemPosY = [];
   var elemH = [];
@@ -25,17 +26,20 @@ function loadlib () {
   addEventListenerToList(menuElems, "click", function(){smoothScroll(event);});  
   addEventListenerToList(hoverElems, "mouseover", function(){activeState(event);});
   addEventListenerToList(hoverElems, "mouseout", function(){inactiveState(event);});
+  addEventListenerToList(scrollElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
   
   //Initial status on page refresh  
-  (countElems.length > 0) ? getPos(countElems) : false;
-  (typeElems.length > 0) ? getPos(typeElems) : false;
-  (inviewElems.length > 0) ? inView(inviewElems) : false;
-  
+  (scrollElems.length > 0) ? inView(scrollElems, treshold) : false;
+  (countElems.length > 0) ? inView(countElems, treshold) : false;
+  (typeElems.length > 0) ? inView(typeElems, treshold) : false;
+  (inviewElems.length > 0) ? inView(inviewElems, treshold) : false;
+    
   //Window listeners  
-  window.addEventListener("scroll", function(){inView(countElems);}, false);
-  window.addEventListener("scroll", function(){inView(typeElems);}, false);   
+  window.addEventListener("scroll", function(){inView(scrollElems, treshold);}, false);
+  window.addEventListener("scroll", function(){inView(countElems, treshold);}, false);
+  window.addEventListener("scroll", function(){inView(typeElems, treshold);}, false);   
   window.addEventListener("scroll", function(){inView(inviewElems, treshold);}, false);
   
   //Helpers
