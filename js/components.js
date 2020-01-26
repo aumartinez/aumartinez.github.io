@@ -1,6 +1,6 @@
-window.addEventListener("load", loadlib, false);
+window.addEventListener("load", myLib, false);
 
-function loadlib () {  
+function myLib () {  
   var elems = document.querySelectorAll("body *");
    
   activeMenu();
