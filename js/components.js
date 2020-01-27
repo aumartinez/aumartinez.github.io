@@ -9,14 +9,16 @@ function animatedList() {
   for (var i = 0; i < listItems.length; i++) {
     listItems[i].style.display = "none";
   } 
+    
+  var ind = 0;  
+  listItems[ind].style.display = "inline-block";
   
-  var timer = 2000;
+  var timer = 10000;
   var limit = listItems.length;
-  var ind = 0;
-  var i = 0;
     
   var loop = setInterval(
     function() {
+      ind++;
       if (ind == limit) {        
         listItems[limit - 1].style.display = "none";
         ind = 0;
@@ -25,8 +27,6 @@ function animatedList() {
         listItems[ind - 1].style.display = "none";
       }
       listItems[ind].style.display = "inline-block";
-      
-      ind++;
     }
   , timer);
 }
@@ -94,6 +94,7 @@ function myLib() {
   addEventListenerToList(inviewOnceElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
+  addEventListenerToList(typeElems, "inview", function(){typeIt(event);});
   
   //Initial status on page refresh  
   (inviewOnceElems.length > 0) ? inView(inviewOnceElems, treshold) : false;
