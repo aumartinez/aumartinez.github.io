@@ -3,7 +3,7 @@ window.addEventListener("load", themeSwitcher, false);
 
 function themeSwitcher() {
   var themeIs = "off";
-  var switchControls = document.querySelectorAll("form.theme-switch-wrapper label input");
+  var switchControls = document.querySelectorAll(".theme-switch .slider");
   
   addEventListenerToList(switchControls, "click", function() {themeChange(event);});
     
