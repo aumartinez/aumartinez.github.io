@@ -266,6 +266,11 @@ header::after {
   right: 0;
 }
 
+.mobile.theme-switch {
+  top: 10px;
+  right: 75px;
+}
+
 .slider {
   background-color: #555;  
   width: 60px;
