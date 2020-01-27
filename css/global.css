@@ -255,42 +255,26 @@ header::after {
   margin-top: 60px;
 }
 
-form.theme-switch-wrapper {
+.theme-switch {
   position: fixed;
   z-index: 1;
   max-width: 1170px;
+  display: block;
   margin: auto;
+  top: 75px;
   left: 0;
-  right: 30px;
-  top: 75px;  
-}
-
-form.theme-switch-wrapper.mobile-wrapper {  
-  right: 75px;
-  top: 10px;
-}
-
-form.theme-switch-wrapper label {
   right: 0;
-  position: absolute;
-}
-
-.theme-switch {
-  display: table;
-  position: relative;    
-}
-
-.theme-switch input {
-  position: absolute;
-  right: -999em;
 }
 
 .slider {
   background-color: #555;  
   width: 60px;
   height: 35px;
-  display: table-cell;
+  display: block;
   cursor: pointer;
+  position: relative;
+  padding: 2px;
+  float: right;
 }
 
 .slider::before {
@@ -298,8 +282,7 @@ form.theme-switch-wrapper label {
   background-color: #fff;
   display: block;
   width: 30px;
-  height: 30px;
-  margin: 2px;
+  height: 30px;  
   transition: all 0.2s;
 }
 
@@ -311,11 +294,11 @@ form.theme-switch-wrapper label {
   border-radius: 50%;
 }
 
-.theme-switch input:checked + .slider {
+.slider.active {
   background-color: #66bb6a;
 }
 
-.theme-switch input:checked + .slider::before {
+.slider.active::before {
   transform: translateX(25px);
 }
 
