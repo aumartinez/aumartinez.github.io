@@ -1,5 +1,35 @@
 window.addEventListener("load", myLib, false);
 window.addEventListener("load", themeSwitcher, false);
+window.addEventListener("load", animatedList, false);
+
+function animatedList() {
+  var list = document.querySelector("#ani-list");
+  var listItems = list.children;
+  
+  for (var i = 0; i < listItems.length; i++) {
+    listItems[i].style.display = "none";
+  } 
+  
+  var timer = 2000;
+  var limit = listItems.length;
+  var ind = 0;
+  var i = 0;
+    
+  var loop = setInterval(
+    function() {
+      if (ind == limit) {        
+        listItems[limit - 1].style.display = "none";
+        ind = 0;
+      }
+      if (ind > 0) {
+        listItems[ind - 1].style.display = "none";
+      }
+      listItems[ind].style.display = "inline-block";
+      
+      ind++;
+    }
+  , timer);
+}
 
 function themeSwitcher() {
   var themeIs = "off";

@@ -268,7 +268,7 @@ header::after {
 
 .mobile.theme-switch {
   top: 10px;
-  right: 75px;
+  right: 60px;
 }
 
 .slider {
@@ -280,6 +280,7 @@ header::after {
   position: relative;
   padding: 2px;
   float: right;
+  margin-right: 15px;
 }
 
 .slider::before {
@@ -326,6 +327,28 @@ section .wrap-helper {
 section .wrapper {
   display: table-cell;
   vertical-align: middle;
+}
+
+#ani-list {
+  list-style: none;
+  display: inline-block;
+  padding: 0;  
+}
+
+#ani-list li::before {
+  content: "{";
+  font-size: 60px;
+  float: left;
+}
+
+#ani-list li::after {
+  content: "}";
+  font-size: 60px;    
+}
+
+#ani-list li {
+  display: inline-block;
+  font-size: 60px;  
 }
 
 /* Footer */
