@@ -336,20 +336,11 @@ section .wrapper {
 }
 
 #ani-list li::before {
-  content: "{";
-  font-size: 60px;
-  float: left;
+  content: "{";    
 }
 
 #ani-list li::after {
-  content: "}";
-  font-size: 60px;    
-}
-
-#ani-list li {
-  display: inline-block;
-  font-size: 60px;
-  display: none;  
+  content: "}";  
 }
 
 /* Footer */
@@ -419,8 +410,10 @@ footer {
   
   /* Content */
   
-  section.sec-cont {
-     
+  #ani-list li {
+    display: inline-block;
+    font-size: 60px;
+    display: none;  
   }
     
   /* Footer */
