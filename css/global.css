@@ -335,6 +335,10 @@ section .wrapper {
   padding: 0;  
 }
 
+#ani-list li {
+  display:none;
+}
+
 #ani-list li::before {
   content: "{";    
 }
@@ -410,10 +414,8 @@ footer {
   
   /* Content */
   
-  #ani-list li {
-    display: inline-block;
-    font-size: 60px;
-    display: none;  
+  #ani-list li {    
+    font-size: 60px;    
   }
     
   /* Footer */
