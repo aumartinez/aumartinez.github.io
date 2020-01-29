@@ -5,19 +5,21 @@ window.addEventListener("load", animatedList, false);
 function animatedList() {
   var list = document.querySelector("#ani-list");
   var listItems = list.children;
-  
+  var str = [];
+    
   for (var i = 0; i < listItems.length; i++) {
-    listItems[i].style.display = "none";
-  } 
+    str.push(listItems[i].innerText);    
+  }
     
-  var ind = 0;  
-  listItems[ind].style.display = "inline-block";
-  
-  var timer = 10000;
+  var ind = 0; 
   var limit = listItems.length;
-    
+  
+  listItems[ind].style.display = "inline-block";    
+  var clock = (str[ind].length * 200) + 100;
+  typer(listItems[ind], str[ind], clock);
+  
   var loop = setInterval(
-    function() {
+    function() {      
       ind++;
       if (ind == limit) {        
         listItems[limit - 1].style.display = "none";
@@ -25,10 +27,71 @@ function animatedList() {
       }
       if (ind > 0) {
         listItems[ind - 1].style.display = "none";
+        listItems[ind - 1].innerText = str[ind - 1];
       }
-      listItems[ind].style.display = "inline-block";
+      listItems[ind].style.display = "inline-block";      
+      typer(listItems[ind], str[ind], clock);
     }
-  , timer);
+  , clock);
+  
+ function typer(elem, liStr, clock) {    
+    var typeStr = "";
+    var i = 0;
+    
+    elem.innerText = "";
+    
+    var timer = Math.floor(clock / liStr.length * 0.5);
+    
+    var typeForward = setInterval(
+     function() {
+       if (i == liStr.length) {
+         elem.innerText = liStr;
+         typePause(elem, liStr, clock);         
+         clearInterval(typeForward);
+       }
+       else {
+         typeStr += liStr[i];
+         elem.innerText = typeStr;
+         i++;
+       }
+       
+     }
+    , timer);
+  }
+  
+  function typePause(elem, liStr, clock) {    
+    var timer = 20;
+    var i = 0;
+    
+    var pause = setInterval(
+      function() {
+        if (i == timer) {
+          typeBack(elem, liStr, clock);
+          clearInterval(pause);
+        }
+        else {
+          i++;
+        }
+      }
+    , timer);
+  }
+
+  function typeBack(elem, liStr, clock) {
+    var typeStr = liStr;
+    elem.innerText = typeStr;
+    
+    var timer = Math.floor(clock / liStr.length * 0.4);
+    
+    var typeBackwards = setInterval(
+    function() {
+      if (typeStr.length == 0) {
+        clearInterval(typeBackwards);
+      }
+      typeStr = typeStr.substring(0, typeStr.length - 1);
+      elem.innerText = typeStr;
+    }
+    , timer);
+  }
 }
 
 function themeSwitcher() {
@@ -54,15 +117,6 @@ function themeSwitcher() {
     var head = document.getElementsByTagName("head")[0];
     head.removeChild(head.lastChild);
   }
-  
-  function addEventListenerToList(list, evt, func) {
-    var arr = list;
-    if (arr) {
-      for (var i = 0; i < arr.length; i++) {
-        arr[i].addEventListener(evt, func, false);
-      }
-    }
-  }
 }
 
 function myLib() {  
@@ -78,6 +132,7 @@ function myLib() {
   var activeElems = filterElems(elems, "data-toggle", "active");  
   var hoverElems = filterElems(elems, "data-animate", "hover");
   var typeElems = filterElems(elems, "data-animate", "type");
+  var typeRevElems = filterElems(elems, "data-animate", "typerev");
   var inviewElems = filterElems(elems, "data-animate", "inview");
   var inviewOnceElems = filterElems(elems, "data-animate", "once");
   
@@ -95,11 +150,13 @@ function myLib() {
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
   addEventListenerToList(typeElems, "inview", function(){typeIt(event);});
+  addEventListenerToList(typeRevElems, "inview", function(){typeRev(event);});
   
   //Initial status on page refresh  
   (inviewOnceElems.length > 0) ? inView(inviewOnceElems, treshold) : false;
   (countElems.length > 0) ? inView(countElems, treshold) : false;
   (typeElems.length > 0) ? inView(typeElems, treshold) : false;
+  (typeRevElems.length > 0) ? inView(typeRevElems, treshold) : false;
   (inviewElems.length > 0) ? inView(inviewElems, treshold) : false;
     
   //Window listeners  
@@ -108,39 +165,6 @@ function myLib() {
   window.addEventListener("scroll", function(){inView(typeElems, treshold);}, false);   
   window.addEventListener("scroll", function(){inView(inviewElems, treshold);}, false);
   
-  //Helpers
-  function filterElems(elems, attribute, data) {
-    var arr = [];
-    for (var i = 0; i < elems.length; i++) {
-      if (elems[i].getAttribute(attribute) === data) {
-        arr.push(elems[i]);
-      }
-    }
-    return arr;
-  }
-
-  function addEventListenerToList(list, evt, func) {
-    var arr = list;
-    if (arr) {
-      for (var i = 0; i < arr.length; i++) {
-        arr[i].addEventListener(evt, func, false);
-      }
-    }
-  }
-
-  function addEventListenerToListOnce(list, evt, fn) {  
-    var arr = list;
-    if (arr) {
-      for (var i = 0; i < arr.length; i++) {
-        var func = function() {
-          arr[i].removeEventListener(evt, func, false);
-          fn();
-        };
-        arr[i].addEventListener(evt, func, false);
-      }
-    }
-  }
-
   function pullMenuElems(elems) {
     var arr = [];
     for (var i = 0; i < elems.length; i++) {
@@ -148,92 +172,38 @@ function myLib() {
     }  
     return arr;
   }
-
-  function callOnce(func) {
-    var called = false;
-    return function() {
-      if (!called) {
-        called = true;
-        return func();
-      }
-      else {
-        return;
-      }
-    }
-  }
-
-  function createNewEvent(evtName) {
-    var evt;
-    if (typeof Event === "function") {
-      evt = new Event(evtName);
-    }
-    else {
-      evt = document.createEvent("Event");
-      evt.initEvent(evtName, true, true);
-    }
-    
-    return evt;
-  }
-
-  function addClass (elem, myClass) {
-    if (elem.clasList) {
-      elem.classList.add(myClass);
-    }
-    else {
-      var arr = elem.className.split(" ");
-      var i = arr.indexOf(myClass);
-      if (i == -1) {
-        arr.push(myClass);
-        elem.className = arr.join(" ");
-      }
-    }
-  }
-
-  function removeClass (elem, myClass) {
-    if (elem.clasList) {
-      elem.classList.remove(myClass);
-    }
-    else {
-      var arr = elem.className.split(" ");
-      var i = arr.indexOf(myClass);
-      if (i >= 0) {
-        arr.splice(i, 1);
-        elem.className = arr.join(" ");
-      }
-    }
-  }
   
   function activeMenu() {
     var activeWin = window.location.href;
     var menu = document.querySelector("ul.navbar-nav");
     var menuItems = menu.children;
     var activeItem;
-    
+     
     activeWin = activeWin.split("/");
     activeWin = activeWin[activeWin.length - 1];
-            
+              
     if (activeWin.indexOf("#") != -1) {
       activeWin = activeWin.substring(activeWin.indexOf("#") + 1);
     }
-    
+      
     if (menu) {
       var menuLinks = menu.querySelectorAll("a");
-      
+        
       for (var i = 0; i < menuLinks.length; i++) {
         var str = menuLinks[i].getAttribute("href");
         str = str.split("/");
         str = str[str.length - 1];
-        
+          
         if (str.indexOf("#") != 1) {
           str = str.substring(str.indexOf("#") + 1);  
         }
-        
+          
         if (str == activeWin) {
           activeItem = menuLinks[i];
         }
-        
+          
       }  
-      
+        
       for (var i = 0; i < menuItems.length; i++) {
         removeClass(menuItems[i], "active");
         if (activeWin == "") {
@@ -244,7 +214,7 @@ function myLib() {
           addClass(menuItems[i], "active");
         }
       }
-      
+        
     }
   }
   
@@ -333,59 +303,6 @@ function myLib() {
       
   }
 
-  function toggleClass(evt) {
-    var elem = evt.currentTarget;
-    var myClass = elem.getAttribute("data-toggle");
-    
-    if (elem.getAttribute("data-target")) {
-      var elems = [];
-      elems = document.querySelectorAll(elem.getAttribute("data-target"));
-      
-      if (elems.length > 0) {
-        for (var i = 0; i < elems.length; i++) {
-          if (elems[i].classList) {
-            elems[i].classList.toggle(myClass);
-            var evt = createNewEvent("active");
-            elems[i].dispatchEvent(evt);
-          }
-          else {
-            var arr = elems[i].className.split(" ");
-            var ind = arr.indexOf(myClass);
-            
-            if (ind >= 0) {
-              arr.splice(ind, 1);
-            }
-            else {
-              arr.push(myClass);
-              elems[i].className = arr.join(" ");
-              var evt = createNewEvent("active");
-              elems[i].dispatchEvent(evt);
-            }
-          }
-        }
-      }
-      
-      return;
-    }
-    
-    else if (elem.classList) {
-      elem.classList.toggle(myClass);
-    }
-    
-    else {
-      var arr = elem.className.split(" ");
-      var i = arr.indexOf(myClass);
-      
-      if (i >= 0) {
-        arr.splice(i, 1);
-      }
-      else {
-        arr.push(myClass);
-        elem.className = arr.join(" ");
-      }
-    }
-  }
-
   function animateCounter(evt) {
     var elem = evt.currentTarget;
     var numb = parseInt(elem.innerText);
@@ -423,22 +340,9 @@ function myLib() {
     }
   }
 
-  function activeState(evt) {
-    var elem = evt.currentTarget;
-    var myClass = "active";
-    
-    return addClass(elem, myClass);
-  }
-
-  function inactiveState(evt) {
-    var elem = evt.currentTarget;
-    var myClass = "active";
-    
-    return removeClass(elem, myClass);
-  }
-
   function typeIt(evt) {
     var elem = evt.currentTarget;
+    console.log(elem);
     var str = elem.innerText;  
     var span = document.createElement("span");  
     var thisStyles = getComputedStyle(elem, null);
@@ -473,4 +377,157 @@ function myLib() {
       }, time);
     
   }
+}
+
+//Helpers
+function filterElems(elems, attribute, data) {
+  var arr = [];
+  for (var i = 0; i < elems.length; i++) {
+    if (elems[i].getAttribute(attribute) === data) {
+      arr.push(elems[i]);
+    }
+  }
+  return arr;
+}
+
+function addEventListenerToList(list, evt, func) {
+  var arr = list;
+  if (arr) {
+    for (var i = 0; i < arr.length; i++) {
+      arr[i].addEventListener(evt, func, false);
+    }
+  }
+}
+
+function addEventListenerToListOnce(list, evt, fn) {  
+  var arr = list;
+  if (arr) {
+    for (var i = 0; i < arr.length; i++) {
+      var func = function() {
+        arr[i].removeEventListener(evt, func, false);
+        fn();
+      };
+      arr[i].addEventListener(evt, func, false);
+    }
+  }
+}
+
+function callOnce(func) {
+  var called = false;
+  return function() {
+    if (!called) {
+      called = true;
+      return func();
+    }
+    else {
+      return;
+    }
+  }
+}
+
+function createNewEvent(evtName) {
+  var evt;
+  if (typeof Event === "function") {
+    evt = new Event(evtName);
+  }
+  else {
+    evt = document.createEvent("Event");
+    evt.initEvent(evtName, true, true);
+  }
+  return evt;
+}
+
+function addClass (elem, myClass) {
+  if (elem.clasList) {
+    elem.classList.add(myClass);
+  }
+  else {
+    var arr = elem.className.split(" ");
+    var i = arr.indexOf(myClass);
+    if (i == -1) {
+      arr.push(myClass);
+      elem.className = arr.join(" ");
+    }
+  }
+}
+
+function removeClass (elem, myClass) {
+  if (elem.clasList) {
+    elem.classList.remove(myClass);
+  }
+  else {
+    var arr = elem.className.split(" ");
+    var i = arr.indexOf(myClass);
+    if (i >= 0) {
+      arr.splice(i, 1);
+      elem.className = arr.join(" ");
+    }
+  }
+}
+  
+function toggleClass(evt) {
+  var elem = evt.currentTarget;
+  var myClass = elem.getAttribute("data-toggle");
+    
+  if (elem.getAttribute("data-target")) {
+    var elems = [];
+    elems = document.querySelectorAll(elem.getAttribute("data-target"));
+      
+    if (elems.length > 0) {
+      for (var i = 0; i < elems.length; i++) {
+        if (elems[i].classList) {
+          elems[i].classList.toggle(myClass);
+          var evt = createNewEvent("active");
+          elems[i].dispatchEvent(evt);
+        }
+        else {
+          var arr = elems[i].className.split(" ");
+          var ind = arr.indexOf(myClass);
+            
+          if (ind >= 0) {
+            arr.splice(ind, 1);
+          }
+          else {
+            arr.push(myClass);
+            elems[i].className = arr.join(" ");
+            var evt = createNewEvent("active");
+            elems[i].dispatchEvent(evt);
+          }
+        }
+      }
+    }
+      
+    return;
+  }
+    
+  else if (elem.classList) {
+    elem.classList.toggle(myClass);
+  }
+    
+  else {
+    var arr = elem.className.split(" ");
+    var i = arr.indexOf(myClass);
+      
+    if (i >= 0) {
+      arr.splice(i, 1);
+    }
+    else {
+      arr.push(myClass);
+      elem.className = arr.join(" ");
+    }
+  }
+}
+  
+function activeState(evt) {
+  var elem = evt.currentTarget;
+  var myClass = "active";
+    
+  return addClass(elem, myClass);
+}
+
+function inactiveState(evt) {
+  var elem = evt.currentTarget;
+  var myClass = "active";
+    
+  return removeClass(elem, myClass);
 }

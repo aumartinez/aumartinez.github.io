@@ -348,7 +348,8 @@ section .wrapper {
 
 #ani-list li {
   display: inline-block;
-  font-size: 60px;  
+  font-size: 60px;
+  display: none;  
 }
 
 /* Footer */
