@@ -183,6 +183,8 @@ header::after {
 .navbar-brand {
   padding: 0;
   line-height: 50px;
+  position: relative;
+  z-index: 3;
 }
 
 .navbar-toggle {
@@ -332,7 +334,8 @@ section .wrapper {
 #ani-list {
   list-style: none;
   display: inline-block;
-  padding: 0;  
+  padding: 0; 
+  font-size: 22px;
 }
 
 #ani-list li {
