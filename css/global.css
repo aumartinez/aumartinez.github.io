@@ -417,6 +417,13 @@ footer {
   
   /* Content */
   
+  #intro {
+    background-image: url("../img/bg-welcome.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  
   #ani-list li {    
     font-size: 60px;    
   }
