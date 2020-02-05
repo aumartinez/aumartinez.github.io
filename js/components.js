@@ -531,3 +531,7 @@ function inactiveState(evt) {
     
   return removeClass(elem, myClass);
 }
+
+function elemObserver(elem, treshold) {
+  
+}
