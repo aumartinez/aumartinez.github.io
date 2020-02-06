@@ -11,7 +11,7 @@ let loader = function(rotate) {
   div.style.zIndex = 1;
   div.style.overflow = "hidden";
    
-  document.getElementsByTagName("html")[0].appendChild(div);
+  document.getElementsByTagName("body")[0].appendChild(div);
   
   let inDiv = document.createElement("div");
   
