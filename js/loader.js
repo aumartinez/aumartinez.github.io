@@ -13,23 +13,23 @@ let loader = function(rotate) {
    
   document.getElementsByTagName("body")[0].appendChild(div);
   
-  let inDiv = document.createElement("div");
+  let spin = document.createElement("div");
   
-  inDiv.style.height = "100px";
-  inDiv.style.width = "100px";  
-  inDiv.style.position = "absolute";
-  inDiv.style.left = 0;
-  inDiv.style.right = 0;
-  inDiv.style.marginLeft = "auto";
-  inDiv.style.marginRight = "auto";
-  inDiv.style.top = "35%";
-  inDiv.style.borderTop = "solid 10px #ccc";
-  inDiv.style.borderLeft = "solid 10px #777";
-  inDiv.style.borderRight = "solid 10px #777";
-  inDiv.style.borderBottom = "solid 10px #777";
-  inDiv.style.borderRadius = "50%";
+  spin.style.height = "100px";
+  spin.style.width = "100px";  
+  spin.style.position = "absolute";
+  spin.style.left = 0;
+  spin.style.right = 0;
+  spin.style.marginLeft = "auto";
+  spin.style.marginRight = "auto";
+  spin.style.top = "35%";
+  spin.style.borderTop = "solid 10px #ccc";
+  spin.style.borderLeft = "solid 10px #777";
+  spin.style.borderRight = "solid 10px #777";
+  spin.style.borderBottom = "solid 10px #777";
+  spin.style.borderRadius = "50%";
   
-  document.getElementsByTagName("div")[0].appendChild(inDiv);
+  document.getElementsByTagName("div")[0].appendChild(spin);
   
   let time = 10;
   let deg = 0;
@@ -37,7 +37,7 @@ let loader = function(rotate) {
   
   rotate = setInterval(
     function(){
-      inDiv.style.transform = "rotate(" + deg + "deg)";
+      spin.style.transform = "rotate(" + deg + "deg)";
       deg += inc;      
     }
   , time);
