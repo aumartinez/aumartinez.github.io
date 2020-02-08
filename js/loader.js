@@ -1,8 +1,8 @@
 //JS loader
 
-let rotate;
-let loader = function(rotate) {
-  let div = document.createElement("div");
+var rotate;
+var loader = function(rotate) {
+  var div = document.createElement("div");
   
   div.style.position = "fixed";
   div.style.backgroundColor = "rgba(255,255,255,0.7)";
@@ -13,7 +13,7 @@ let loader = function(rotate) {
    
   document.getElementsByTagName("body")[0].appendChild(div);
   
-  let spin = document.createElement("div");
+  var spin = document.createElement("div");
   
   spin.style.height = "100px";
   spin.style.width = "100px";  
@@ -31,9 +31,9 @@ let loader = function(rotate) {
   
   document.getElementsByTagName("div")[0].appendChild(spin);
   
-  let time = 10;
-  let deg = 0;
-  let inc = 5;
+  var time = 10;
+  var deg = 0;
+  var inc = 5;
   
   rotate = setInterval(
     function(){
@@ -47,7 +47,7 @@ let loader = function(rotate) {
 
 function stop() {
   clearInterval(loader(rotate));
-  let div = document.getElementsByTagName("div")[0];
+  var div = document.getElementsByTagName("div")[0];
   div.parentNode.removeChild(div);
 }
 
