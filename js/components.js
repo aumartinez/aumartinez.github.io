@@ -122,7 +122,7 @@ function themeSwitcher() {
 function myLib() {  
   var elems = document.querySelectorAll("body *");
    
-  activeMenu();
+  //activeMenu();
   
   //Filter elements  
   var linkElems = filterElems(elems, "data-animate", "link-scroll");
