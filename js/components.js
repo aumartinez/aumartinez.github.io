@@ -76,29 +76,32 @@ function animatedList() {
   listItems[ind].style.display = "inline-block";
   
   var clock = str[ind].length * 200;
+  typer(listItems[ind], str[ind], clock);
   
-  if (document.hasFocus()) {
-    typer(listItems[ind], str[ind], clock);
-    
-    var loop = setInterval(
-    function() {
-      ind++;
-      if (ind == limit) {        
-        listItems[limit - 1].style.display = "none";
-        ind = 0;
+  window.addEventListener("visibilitychange", runTyper(), false);
+  
+  function runTyper(){    
+    if (!document.hidden) {
+      var loop = setInterval(
+      function() {
+        ind++;
+        if (ind == limit) {        
+          listItems[limit - 1].style.display = "none";
+          ind = 0;
+        }
+        if (ind > 0) {
+          listItems[ind - 1].style.display = "none";
+          listItems[ind - 1].innerText = str[ind - 1];
+        }
+        listItems[ind].style.display = "inline-block";      
+        typer(listItems[ind], str[ind], clock);
       }
-      if (ind > 0) {
-        listItems[ind - 1].style.display = "none";
-        listItems[ind - 1].innerText = str[ind - 1];
-      }
-      listItems[ind].style.display = "inline-block";      
-      typer(listItems[ind], str[ind], clock);
+      , clock);
     }
-    , clock);    
-  }
-  if (!document.hasFocus()) {
-    console.log("Lost focus");
-  }
+    else {
+      console.log("Lost focus");
+    }
+  } 
   
 }
 
