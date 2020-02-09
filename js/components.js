@@ -99,11 +99,11 @@ function animatedList() {
       
   document.addEventListener("visibilitychange", function(){
     if (document.visibilityState == "hidden") {
-      clearInterval(loop);      
+      clearInterval(loop);
+      clear
     }
     else {
-      typer(listItems[ind], str[ind], clock);
-      
+           
       loop = setInterval(
       function() {
         ind++;
