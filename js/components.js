@@ -13,7 +13,7 @@ function animatedList() {
     str.push(listItems[i].innerText);    
   }
   
-  function typer(elem, liStr, clock) {
+  function typer(elem, liStr, clock) {      
     var typeStr = "";
     var i = 0;
     
@@ -23,11 +23,11 @@ function animatedList() {
     
     var typeForward = setInterval(
      function() {
-       if (i == liStr.length) {
+       if (i == liStr.length || document.visibilityState == "hidden") {
          clearInterval(typeForward);
          elem.innerText = liStr;
          typePause(elem, liStr, clock);
-       }
+       }       
        else {
          typeStr += liStr[i];
          elem.innerText = typeStr;
@@ -37,19 +37,15 @@ function animatedList() {
      }
     , timer);
     
-    if (document.visibilityState == "hidden") {
-      clearInterval(typeForward);
-      return;
-    }
   }
   
-  function typePause(elem, liStr, clock) {    
+  function typePause(elem, liStr, clock) {      
     var timer = 10;
     var i = 0;
     
     var pause = setInterval(
-      function() {
-        if (i == timer) {
+      function() {       
+        if (i == timer || document.visibilityState == "hidden") {
           clearInterval(pause);
           typeBack(elem, liStr, clock);
         }
@@ -57,34 +53,26 @@ function animatedList() {
           i++;
         }
       }
-    , timer);
-    
-    if (document.visibilityState == "hidden") {
-      clearInterval(pause);
-      return;
-    }
+    , timer);   
   }
 
-  function typeBack(elem, liStr, clock) {
+  function typeBack(elem, liStr, clock) {        
     var typeStr = liStr;
     elem.innerText = typeStr;
     
     var timer = Math.floor(clock / liStr.length * 0.5);
     
     var typeBackwards = setInterval(
-    function() {
-      if (typeStr.length == 0) {
+    function() {      
+      if (typeStr.length == 0 || document.visibilityState == "hidden") {
         clearInterval(typeBackwards);
       }
-      typeStr = typeStr.substring(0, typeStr.length - 1);
-      elem.innerText = typeStr;
+      else {
+        typeStr = typeStr.substring(0, typeStr.length - 1);
+        elem.innerText = typeStr;  
+      }
     }
     , timer);
-    
-    if (document.visibilityState == "hidden") {
-      clearInterval(typeBackwards);
-      return;
-    }
   }
   
   var ind = 0;   
@@ -114,9 +102,12 @@ function animatedList() {
       
   document.addEventListener("visibilitychange", function(){
     if (document.visibilityState == "hidden") {
-      clearInterval(loop);      
+      clearInterval(loop);
+      listItems[ind].innerText = "";
+      return;
     }
     else {
+      animatedList;
       
       loop = setInterval(
       function() {
