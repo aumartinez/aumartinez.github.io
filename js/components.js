@@ -4,14 +4,37 @@ window.addEventListener("load", animatedList, false);
 
 function animatedList() {
   var list = document.querySelector("#ani-list");
-  var listItems = list.querySelectorAll("li");
+  var listItems = list.children;
   var str = [];
     
   for (var i = 0; i < listItems.length; i++) {
     str.push(listItems[i].innerText);    
   }
+     
+  function typer(elem, liStr, speed) {
+    var typeStr = "";
+    var i = 0;
+    var liStr = liStr;
+        
+    elem.innerText = "";
+    
+    if (i < liStr.length) {
+      typeStr += liStr[i];
+      elem.innerText += typeStr;
+      i++;
+      setTimeout(typer, speed);
+    }
+    
+  }
   
-  function typer(elem, liStr, clock) {    
+  var speed = 50;
+  var ind = 0;
+  
+  console.log(listItems[ind]);
+  
+  typer(listItems[ind], str[ind], speed);
+  
+  /* function typer(elem, liStr, clock) {    
     var typeStr = "";
     var i = 0;
     
@@ -34,7 +57,7 @@ function animatedList() {
        
      }
     , timer);
-  }
+  } 
   
   function typePause(elem, liStr, clock) {    
     var timer = 20;
@@ -93,6 +116,8 @@ function animatedList() {
         typer(listItems[ind], str[ind], clock);
       }
       , clock);
+      
+      */
 }
 
 function themeSwitcher() {
