@@ -115,9 +115,6 @@ function animatedList() {
         clearInterval(typeBack.typeBackwards);        
         //Stop
       }
-      else{
-        //Restart        
-      }
   }, false);
   
 }
