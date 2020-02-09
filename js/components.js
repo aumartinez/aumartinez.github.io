@@ -476,7 +476,7 @@ function createNewEvent(evtName) {
 }
 
 function addClass (elem, myClass) {
-  if (elem.clasList) {
+  if (elem.classList) {
     elem.classList.add(myClass);
   }
   else {

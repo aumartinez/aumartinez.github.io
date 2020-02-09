@@ -42,7 +42,7 @@ function addClass (elem, myClass) {
 }
 
 function removeClass (elem, myClass) {
-  if (elem.clasList) {
+  if (elem.classList) {
     elem.classList.remove(myClass);
   }
   else {

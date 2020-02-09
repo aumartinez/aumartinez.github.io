@@ -15,7 +15,7 @@
 #ani-list li.active {   
   width: 100%;
   height: auto;
-  transition: width 1.5s;
+  transition: width 2s;
 }
 
 #ani-list li.active span {
