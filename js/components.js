@@ -100,6 +100,8 @@ function animatedList() {
       clearInterval(loop);      
     }
     else {
+      typer(listItems[ind], str[ind], clock);
+      
       loop = setInterval(
       function() {
         ind++;
