@@ -13,7 +13,11 @@ function animatedList() {
     str.push(listItems[i].innerText);    
   }
   
-  function typer(elem, liStr, clock) {    
+  function typer(elem, liStr, clock) {
+    if (document.visibilityState == "hidden") {
+      return;
+    }
+    
     var typeStr = "";
     var i = 0;
     
@@ -102,7 +106,7 @@ function animatedList() {
       clearInterval(loop);      
     }
     else {
-           
+      
       loop = setInterval(
       function() {
         ind++;
