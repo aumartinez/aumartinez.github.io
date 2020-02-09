@@ -340,7 +340,7 @@ section .wrapper {
 }
 
 #ani-list li {
-  display:none;
+  display: none;
 }
 
 #ani-list li::before {

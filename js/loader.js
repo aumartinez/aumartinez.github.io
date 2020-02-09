@@ -23,10 +23,10 @@ var loader = function(rotate) {
   spin.style.marginLeft = "auto";
   spin.style.marginRight = "auto";
   spin.style.top = "35%";
-  spin.style.borderTop = "solid 10px #ccc";
-  spin.style.borderLeft = "solid 10px #777";
-  spin.style.borderRight = "solid 10px #777";
-  spin.style.borderBottom = "solid 10px #777";
+  spin.style.borderTop = "solid 10px transparent";
+  spin.style.borderLeft = "solid 10px #fff";
+  spin.style.borderRight = "solid 10px #fff";
+  spin.style.borderBottom = "solid 10px #fff";
   spin.style.borderRadius = "50%";
   
   document.getElementsByTagName("div")[0].appendChild(spin);

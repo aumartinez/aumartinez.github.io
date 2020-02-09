@@ -4,7 +4,7 @@ window.addEventListener("load", animatedList, false);
 
 function animatedList() {
   var list = document.querySelector("#ani-list");
-  var listItems = list.children;
+  var listItems = list.querySelectorAll("li");
   var str = [];
     
   for (var i = 0; i < listItems.length; i++) {
@@ -13,28 +13,12 @@ function animatedList() {
     
   var ind = 0; 
   var limit = listItems.length;
+    
+  listItems[ind].style.display = "inline-block";
   
-  listItems[ind].style.display = "inline-block";    
-  var clock = (str[ind].length * 200);
-  typer(listItems[ind], str[ind], clock);
+  var clock = str[ind].length * 200;
   
-  var loop = setInterval(
-    function() {      
-      ind++;
-      if (ind == limit) {        
-        listItems[limit - 1].style.display = "none";
-        ind = 0;
-      }
-      if (ind > 0) {
-        listItems[ind - 1].style.display = "none";
-        listItems[ind - 1].innerText = str[ind - 1];
-      }
-      listItems[ind].style.display = "inline-block";      
-      typer(listItems[ind], str[ind], clock);
-    }
-  , clock);
-  
- function typer(elem, liStr, clock) {    
+  function typer(elem, liStr, clock) {    
     var typeStr = "";
     var i = 0;
     
@@ -92,6 +76,25 @@ function animatedList() {
     }
     , timer);
   }
+  
+  typer(listItems[ind], str[ind], clock);
+  
+  var loop = setInterval(
+    function() {
+      ind++;
+      if (ind == limit) {        
+        listItems[limit - 1].style.display = "none";
+        ind = 0;
+      }
+      if (ind > 0) {
+        listItems[ind - 1].style.display = "none";
+        listItems[ind - 1].innerText = str[ind - 1];
+      }
+      listItems[ind].style.display = "inline-block";      
+      typer(listItems[ind], str[ind], clock);
+    }
+  , clock);  
+  
 }
 
 function themeSwitcher() {
@@ -122,7 +125,7 @@ function themeSwitcher() {
 function myLib() {  
   var elems = document.querySelectorAll("body *");
    
-  //activeMenu();
+  activeMenu();
   
   //Filter elements  
   var linkElems = filterElems(elems, "data-animate", "link-scroll");
