@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", myLib, false);
 window.addEventListener("load", themeSwitcher, false);
 window.addEventListener("load", animatedList, false);
