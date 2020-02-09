@@ -77,9 +77,9 @@ function animatedList() {
   
   var clock = str[ind].length * 200;
   
-  typer(listItems[ind], str[ind], clock);
-  
   if (document.hasFocus()) {
+    typer(listItems[ind], str[ind], clock);
+    
     var loop = setInterval(
     function() {
       ind++;
@@ -95,6 +95,9 @@ function animatedList() {
       typer(listItems[ind], str[ind], clock);
     }
     , clock);    
+  }
+  if (!document.hasFocus()) {
+    console.log("Lost focus");
   }
   
 }
