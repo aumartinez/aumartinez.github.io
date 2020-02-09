@@ -13,7 +13,7 @@ function animatedList() {
     str.push(listItems[i].innerText);    
   }
     
-  function typer(elem, liStr, clock) {      
+  function typer(elem, liStr, clock) {   
     var typeStr = "";
     var i = 0;
     
@@ -78,43 +78,30 @@ function animatedList() {
   var ind = 0;   
   var limit = listItems.length;  
   
-  listItems[ind].style.display = "inline-block";
-  
+  listItems[ind].style.display = "";
+  listItems[ind].style.display = "inline-block";  
+    
   var clock = str[ind].length * 200;
-  typer(listItems[ind], str[ind], clock);
+  //typer(listItems[ind], str[ind], clock);
   
   function loop() {
-    var cicle = setInterval(
-      function() {
-        ind++;
-        if (ind == limit) {        
-          listItems[ind - 1].innerText = "";
-          listItems[limit - 1].style.display = "none";          
-          ind = 0;  
-        }
-        if (ind > 0) {
-          listItems[ind - 1].innerText = "";
-          listItems[ind - 1].style.display = "none";          
-        }
-        listItems[ind].style.display = "inline-block";      
-        typer(listItems[ind], str[ind], clock);
-      }
-      , clock);      
+    ind++;
+    if (ind == limit) {        
+      listItems[ind - 1].innerText = "";
+      listItems[limit - 1].style.display = "none";          
+      ind = 0;  
+    }
+    if (ind > 0) {
+      listItems[ind - 1].innerText = "";
+      listItems[ind - 1].style.display = "none";          
+    }
+    listItems[ind].style.display = "inline-block";      
+    typer(listItems[ind], str[ind], clock);
+    
+    setTimeout(loop, clock);
   }
   
-  loop();   
-      
-  document.addEventListener("visibilitychange", 
-    function(){
-      if (document.visibilityState == "hidden") {        
-        clearInterval(typer.typeForward);
-        clearInterval(typePause.pause);
-        clearInterval(typeBack.typeBackwards);
-        clearInterval(loop.cycle);
-        //Stop
-      }
-  }, false);
-  
+  loop();  
 }
 
 function themeSwitcher() {
