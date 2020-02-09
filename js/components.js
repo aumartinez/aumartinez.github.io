@@ -14,10 +14,6 @@ function animatedList() {
   }
   
   function typer(elem, liStr, clock) {
-    if (document.visibilityState == "hidden") {
-      return;
-    }
-    
     var typeStr = "";
     var i = 0;
     
@@ -40,6 +36,11 @@ function animatedList() {
        
      }
     , timer);
+    
+    if (document.visibilityState == "hidden") {
+      clearInterval(typeForward);
+      return;
+    }
   }
   
   function typePause(elem, liStr, clock) {    
@@ -57,6 +58,11 @@ function animatedList() {
         }
       }
     , timer);
+    
+    if (document.visibilityState == "hidden") {
+      clearInterval(pause);
+      return;
+    }
   }
 
   function typeBack(elem, liStr, clock) {
@@ -74,6 +80,11 @@ function animatedList() {
       elem.innerText = typeStr;
     }
     , timer);
+    
+    if (document.visibilityState == "hidden") {
+      clearInterval(typeBackwards);
+      return;
+    }
   }
   
   var ind = 0;   
