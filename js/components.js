@@ -82,7 +82,6 @@ function animatedList() {
   listItems[ind].style.display = "inline-block";  
     
   var clock = str[ind].length * 200;
-  //typer(listItems[ind], str[ind], clock);
   
   function loop() {
     ind++;
@@ -96,12 +95,33 @@ function animatedList() {
       listItems[ind - 1].style.display = "none";          
     }
     listItems[ind].style.display = "inline-block";      
-    typer(listItems[ind], str[ind], clock);
+    typer(listItems[ind], str[ind], clock);    
     
-    setTimeout(loop, clock);
+    window.addEventListener("visibilitychange", 
+      function() {
+        if (document.visibilityState == "hidden"){
+          clearTimeout(cicle);
+        }        
+      }
+    , false);
+    
+    var cicle = setTimeout(loop, clock);
   }
   
-  loop();  
+  if (document.visibilityState == "visible") {
+    loop();
+  }
+  
+  window.addEventListener("visibilitychange", 
+    function() {      
+      if (document.visibilityState == "hidden") {
+        clearTimeout(loop.cicle);
+      }
+      else {
+        loop();
+      }
+    }
+  , false);
 }
 
 function themeSwitcher() {
