@@ -45,9 +45,9 @@ function animatedList() {
     var typeForward = setInterval(
      function() {
        if (i == liStr.length) {
-         elem.innerText = liStr;
-         typePause(elem, liStr, clock);         
          clearInterval(typeForward);
+         elem.innerText = liStr;
+         typePause(elem, liStr, clock);
        }
        else {
          typeStr += liStr[i];
@@ -66,8 +66,8 @@ function animatedList() {
     var pause = setInterval(
       function() {
         if (i == timer) {
-          typeBack(elem, liStr, clock);
           clearInterval(pause);
+          typeBack(elem, liStr, clock);
         }
         else {
           i++;
