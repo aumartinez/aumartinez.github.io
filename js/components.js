@@ -76,13 +76,9 @@ function animatedList() {
   listItems[ind].style.display = "inline-block";
   
   var clock = str[ind].length * 200;
-  typer(listItems[ind], str[ind], clock);
+  typer(listItems[ind], str[ind], clock);  
   
-  window.addEventListener("visibilitychange", runTyper(), false);
-  
-  function runTyper(){    
-    if (!document.hidden) {
-      var loop = setInterval(
+  var loop = setInterval(
       function() {
         ind++;
         if (ind == limit) {        
@@ -97,12 +93,6 @@ function animatedList() {
         typer(listItems[ind], str[ind], clock);
       }
       , clock);
-    }
-    else {
-      console.log("Lost focus");
-    }
-  } 
-  
 }
 
 function themeSwitcher() {
