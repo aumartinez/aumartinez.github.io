@@ -109,14 +109,14 @@ function animatedList() {
   document.addEventListener("visibilitychange", 
     function(){
       if (document.visibilityState == "hidden") {      
+        clearInterval(loop.cicle);
         clearInterval(typer.typeForward);
         clearInterval(typePause.pause);
-        clearInterval(typeBack.typeBackwards);
-        clearInterval(loop.cicle);        
+        clearInterval(typeBack.typeBackwards);        
+        //Stop
       }
       else{
-        //Stopped;
-        console.log("stopped");
+        //Restart        
       }
   }, false);
   
