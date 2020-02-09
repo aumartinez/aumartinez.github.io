@@ -15,7 +15,7 @@ function animatedList() {
   var limit = listItems.length;
   
   listItems[ind].style.display = "inline-block";    
-  var clock = (str[ind].length * 200) + 100;
+  var clock = (str[ind].length * 200);
   typer(listItems[ind], str[ind], clock);
   
   var loop = setInterval(
