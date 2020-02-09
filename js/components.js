@@ -12,7 +12,7 @@ function animatedList() {
   for (var i = 0; i < listItems.length; i++) {
     str.push(listItems[i].innerText);    
   }
-  
+    
   function typer(elem, liStr, clock) {      
     var typeStr = "";
     var i = 0;
@@ -101,11 +101,12 @@ function animatedList() {
       , clock);
       
   document.addEventListener("visibilitychange", function(){
-    if (document.visibilityState == "hidden") {
-      clearInterval(loop);
+    if (document.visibilityState == "hidden") {      
       clearInterval(typer.typeForward);
       clearInterval(typePause.pause);
       clearInterval(typeBack.typeBackwards);
+      clearInterval(loop);
+      stop();
       listItems[ind].innerText = "";      
     }
     else {      
