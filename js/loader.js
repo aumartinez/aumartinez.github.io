@@ -5,7 +5,7 @@ var loader = function(rotate) {
   var div = document.createElement("div");
   
   div.style.position = "fixed";
-  div.style.backgroundColor = "rgba(255,255,255,0.7)";
+  div.style.backgroundColor = "rgba(0,0,0,0.7)";
   div.style.height = "100%";
   div.style.width = "100%";
   div.style.zIndex = 1;
