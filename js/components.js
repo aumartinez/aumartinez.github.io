@@ -99,20 +99,18 @@ function animatedList() {
         listItems[ind].style.display = "inline-block";      
         typer(listItems[ind], str[ind], clock);
       }
-      , clock);
-      
-      return cicle;
+      , clock);      
   }
   
   loop();   
       
   document.addEventListener("visibilitychange", 
     function(){
-      if (document.visibilityState == "hidden") {      
-        clearInterval(loop.cicle);
+      if (document.visibilityState == "hidden") {        
         clearInterval(typer.typeForward);
         clearInterval(typePause.pause);
-        clearInterval(typeBack.typeBackwards);        
+        clearInterval(typeBack.typeBackwards);
+        clearInterval(loop.cycle);
         //Stop
       }
   }, false);
