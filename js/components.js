@@ -23,7 +23,7 @@ function animatedList() {
     
     var typeForward = setInterval(
      function() {
-       if (i == liStr.length || document.visibilityState == "hidden") {
+       if (i == liStr.length) {
          clearInterval(typeForward);
          elem.innerText = liStr;
          typePause(elem, liStr, clock);
@@ -45,7 +45,7 @@ function animatedList() {
     
     var pause = setInterval(
       function() {       
-        if (i == timer || document.visibilityState == "hidden") {
+        if (i == timer) {
           clearInterval(pause);
           typeBack(elem, liStr, clock);
         }
@@ -64,7 +64,7 @@ function animatedList() {
     
     var typeBackwards = setInterval(
     function() {      
-      if (typeStr.length == 0 || document.visibilityState == "hidden") {
+      if (typeStr.length == 0) {
         clearInterval(typeBackwards);
       }
       else {
@@ -103,11 +103,12 @@ function animatedList() {
   document.addEventListener("visibilitychange", function(){
     if (document.visibilityState == "hidden") {
       clearInterval(loop);
-      listItems[ind].innerText = "";
-      return;
+      clearInterval(typer.typeForward);
+      clearInterval(typePause.pause);
+      clearInterval(typeBack.typeBackwards);
+      listItems[ind].innerText = "";      
     }
-    else {
-      animatedList;
+    else {      
       
       loop = setInterval(
       function() {
@@ -127,7 +128,7 @@ function animatedList() {
       , clock);      
     }
     
-  } , false);
+  }, false);
   
 }
 
