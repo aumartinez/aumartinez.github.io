@@ -4,37 +4,14 @@ window.addEventListener("load", animatedList, false);
 
 function animatedList() {
   var list = document.querySelector("#ani-list");
-  var listItems = list.children;
+  var listItems = list.querySelectorAll("li");
   var str = [];
     
   for (var i = 0; i < listItems.length; i++) {
     str.push(listItems[i].innerText);    
   }
-     
-  function typer(elem, liStr, speed) {
-    var typeStr = "";
-    var i = 0;
-    var liStr = liStr;
-        
-    elem.innerText = "";
-    
-    if (i < liStr.length) {
-      typeStr += liStr[i];
-      elem.innerText += typeStr;
-      i++;
-      setTimeout(typer, speed);
-    }
-    
-  }
   
-  var speed = 50;
-  var ind = 0;
-  
-  console.log(listItems[ind]);
-  
-  typer(listItems[ind], str[ind], speed);
-  
-  /* function typer(elem, liStr, clock) {    
+  function typer(elem, liStr, clock) {    
     var typeStr = "";
     var i = 0;
     
@@ -57,10 +34,10 @@ function animatedList() {
        
      }
     , timer);
-  } 
+  }
   
   function typePause(elem, liStr, clock) {    
-    var timer = 20;
+    var timer = 10;
     var i = 0;
     
     var pause = setInterval(
@@ -99,25 +76,50 @@ function animatedList() {
   listItems[ind].style.display = "inline-block";
   
   var clock = str[ind].length * 200;
-  typer(listItems[ind], str[ind], clock);  
-  
+  typer(listItems[ind], str[ind], clock);
+    
   var loop = setInterval(
       function() {
         ind++;
         if (ind == limit) {        
-          listItems[limit - 1].style.display = "none";
-          ind = 0;
+          listItems[ind - 1].innerText = "";
+          listItems[limit - 1].style.display = "none";          
+          ind = 0;  
         }
         if (ind > 0) {
-          listItems[ind - 1].style.display = "none";
-          listItems[ind - 1].innerText = str[ind - 1];
+          listItems[ind - 1].innerText = "";
+          listItems[ind - 1].style.display = "none";          
         }
         listItems[ind].style.display = "inline-block";      
         typer(listItems[ind], str[ind], clock);
       }
       , clock);
       
-      */
+  document.addEventListener("visibilitychange", function(){
+    if (document.visibilityState == "hidden") {
+      clearInterval(loop);      
+    }
+    else {
+      loop = setInterval(
+      function() {
+        ind++;
+        if (ind == limit) {        
+          listItems[ind - 1].innerText = "";
+          listItems[limit - 1].style.display = "none";          
+          ind = 0;  
+        }
+        if (ind > 0) {
+          listItems[ind - 1].innerText = "";
+          listItems[ind - 1].style.display = "none";          
+        }
+        listItems[ind].style.display = "inline-block";      
+        typer(listItems[ind], str[ind], clock);
+      }
+      , clock);      
+    }
+    
+  } , false);
+  
 }
 
 function themeSwitcher() {
