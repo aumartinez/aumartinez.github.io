@@ -99,8 +99,7 @@ function animatedList() {
       
   document.addEventListener("visibilitychange", function(){
     if (document.visibilityState == "hidden") {
-      clearInterval(loop);
-      clear
+      clearInterval(loop);      
     }
     else {
            
