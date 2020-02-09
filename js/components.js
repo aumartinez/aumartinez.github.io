@@ -105,8 +105,7 @@ function animatedList() {
       clearInterval(typer.typeForward);
       clearInterval(typePause.pause);
       clearInterval(typeBack.typeBackwards);
-      clearInterval(loop);
-      stop();
+      clearInterval(loop);      
       listItems[ind].innerText = "";      
     }
     else {      

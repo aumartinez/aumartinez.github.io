@@ -1,4 +1,4 @@
-//JS loader
+"use strict";
 
 var rotate;
 var loader = function(rotate) {
@@ -45,7 +45,7 @@ var loader = function(rotate) {
   return rotate;
 };
 
-function stop() {
+function stopLoader() {
   clearInterval(loader(rotate));
   var div = document.getElementsByTagName("div")[0];
   div.parentNode.removeChild(div);
@@ -53,4 +53,4 @@ function stop() {
 
 loader();
 
-window.addEventListener("load", stop, false);
+window.addEventListener("load", stopLoader, false);
