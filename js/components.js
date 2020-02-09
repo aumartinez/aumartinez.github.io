@@ -10,13 +10,6 @@ function animatedList() {
   for (var i = 0; i < listItems.length; i++) {
     str.push(listItems[i].innerText);    
   }
-    
-  var ind = 0; 
-  var limit = listItems.length;
-    
-  listItems[ind].style.display = "inline-block";
-  
-  var clock = str[ind].length * 200;
   
   function typer(elem, liStr, clock) {    
     var typeStr = "";
@@ -64,7 +57,7 @@ function animatedList() {
     var typeStr = liStr;
     elem.innerText = typeStr;
     
-    var timer = Math.floor(clock / liStr.length * 0.4);
+    var timer = Math.floor(clock / liStr.length * 0.5);
     
     var typeBackwards = setInterval(
     function() {
@@ -77,9 +70,17 @@ function animatedList() {
     , timer);
   }
   
+  var ind = 0;   
+  var limit = listItems.length;  
+  
+  listItems[ind].style.display = "inline-block";
+  
+  var clock = str[ind].length * 200;
+  
   typer(listItems[ind], str[ind], clock);
   
-  var loop = setInterval(
+  if (document.hasFocus()) {
+    var loop = setInterval(
     function() {
       ind++;
       if (ind == limit) {        
@@ -93,7 +94,8 @@ function animatedList() {
       listItems[ind].style.display = "inline-block";      
       typer(listItems[ind], str[ind], clock);
     }
-  , clock);  
+    , clock);    
+  }
   
 }
 
