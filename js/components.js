@@ -82,8 +82,9 @@ function animatedList() {
   
   var clock = str[ind].length * 200;
   typer(listItems[ind], str[ind], clock);
-    
-  var loop = setInterval(
+  
+  function loop() {
+    var cicle = setInterval(
       function() {
         ind++;
         if (ind == limit) {        
@@ -100,34 +101,23 @@ function animatedList() {
       }
       , clock);
       
-  document.addEventListener("visibilitychange", function(){
-    if (document.visibilityState == "hidden") {      
-      clearInterval(typer.typeForward);
-      clearInterval(typePause.pause);
-      clearInterval(typeBack.typeBackwards);
-      clearInterval(loop);      
-      listItems[ind].innerText = "";      
-    }
-    else {      
+      return cicle;
+  }
+  
+  loop();   
       
-      loop = setInterval(
-      function() {
-        ind++;
-        if (ind == limit) {        
-          listItems[ind - 1].innerText = "";
-          listItems[limit - 1].style.display = "none";          
-          ind = 0;  
-        }
-        if (ind > 0) {
-          listItems[ind - 1].innerText = "";
-          listItems[ind - 1].style.display = "none";          
-        }
-        listItems[ind].style.display = "inline-block";      
-        typer(listItems[ind], str[ind], clock);
+  document.addEventListener("visibilitychange", 
+    function(){
+      if (document.visibilityState == "hidden") {      
+        clearInterval(typer.typeForward);
+        clearInterval(typePause.pause);
+        clearInterval(typeBack.typeBackwards);
+        clearInterval(loop.cicle);        
       }
-      , clock);      
-    }
-    
+      else{
+        //Stopped;
+        console.log("stopped");
+      }
   }, false);
   
 }

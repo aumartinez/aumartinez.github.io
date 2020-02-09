@@ -1,24 +1,9 @@
 /* Typer */
 
 #ani-list {
-  margin: 0;
-  padding: 0;
+
 }
 
-#ani-list li{    
-  width: 0%;
-  overflow: hidden;
-  height: 0;  
-  position: relative;
-}
-
-#ani-list li.active {   
-  width: 100%;
-  height: auto;
-  transition: width 2s;
-}
-
-#ani-list li.active span {
-  display: block;
-  position: absolute;  
+#ani-list li{      
+  display: none;  
 }
