@@ -8,7 +8,7 @@ var loader = function(rotate) {
   div.style.backgroundColor = "rgba(0,0,0,0.7)";
   div.style.height = "100%";
   div.style.width = "100%";
-  div.style.zIndex = 1;
+  div.style.zIndex = 999;
   div.style.overflow = "hidden";
    
   document.getElementsByTagName("body")[0].appendChild(div);
