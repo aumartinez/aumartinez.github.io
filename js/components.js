@@ -5,6 +5,7 @@ window.addEventListener("load", themeSwitcher, false);
 window.addEventListener("load", animatedList, false);
 
 function animatedList() {
+  console.log(document.visibilityState);
   var list = document.querySelector("#ani-list");
   var listItems = list.querySelectorAll("li");
   var str = [];
