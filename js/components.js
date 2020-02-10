@@ -22,7 +22,7 @@ function animatedList() {
     
     var timer = Math.floor(clock / liStr.length * 0.5);
     
-    window.addEventListener("visibilitychange", 
+    document.addEventListener("visibilitychange", 
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(typeForward);
@@ -53,7 +53,7 @@ function animatedList() {
     var timer = 10;
     var i = 0;
     
-    window.addEventListener("visibilitychange", 
+    document.addEventListener("visibilitychange", 
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(pause);
@@ -81,7 +81,7 @@ function animatedList() {
     
     var timer = Math.floor(clock / liStr.length * 0.5);
     
-    window.addEventListener("visibilitychange", 
+    document.addEventListener("visibilitychange", 
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(typeBackwards);
@@ -125,7 +125,7 @@ function animatedList() {
     listItems[ind].style.display = "inline-block";      
     typer(listItems[ind], str[ind], clock);    
     
-    window.addEventListener("visibilitychange", 
+    document.addEventListener("visibilitychange", 
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(cicle);
@@ -141,7 +141,7 @@ function animatedList() {
     loop();
   }
   
-  window.addEventListener("visibilitychange", 
+  document.addEventListener("visibilitychange", 
     function() {      
       if (document.visibilityState == "hidden") {
         clearTimeout(loop.cicle);
