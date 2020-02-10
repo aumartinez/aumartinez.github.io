@@ -4,8 +4,7 @@ window.addEventListener("load", myLib, false);
 window.addEventListener("load", themeSwitcher, false);
 window.addEventListener("load", animatedList, false);
 
-function animatedList() {
-  console.log(document.visibilityState);
+function animatedList() {  
   var list = document.querySelector("#ani-list");
   var listItems = list.querySelectorAll("li");
   var str = [];
@@ -128,7 +127,7 @@ function animatedList() {
     document.addEventListener("visibilitychange", 
       function() {
         if (document.visibilityState == "hidden"){
-          clearTimeout(cicle);
+          clearTimeout(cicle);          
           return;
         }        
       }
@@ -145,6 +144,7 @@ function animatedList() {
     function() {      
       if (document.visibilityState == "hidden") {
         clearTimeout(loop.cicle);
+        console.log(document.visibilityState);
       }
       else {
         loop();
