@@ -194,6 +194,7 @@ function myLib() {
   window.addEventListener("scroll", function(){inView(countElems, treshold);}, false);
   window.addEventListener("scroll", function(){inView(typeElems, treshold);}, false);   
   window.addEventListener("scroll", function(){inView(inviewElems, treshold);}, false);
+  window.addEventListener("scroll",function(){elemObserver(menuElems);} , false);
   
   function pullMenuElems(elems) {
     var arr = [];
@@ -562,6 +563,6 @@ function inactiveState(evt) {
   return removeClass(elem, myClass);
 }
 
-function elemObserver(elem, treshold) {
-  
+function elemObserver(elems) {
+  console.log(elems);
 }
