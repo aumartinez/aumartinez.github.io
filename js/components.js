@@ -194,7 +194,7 @@ function myLib() {
   window.addEventListener("scroll", function(){inView(countElems, treshold);}, false);
   window.addEventListener("scroll", function(){inView(typeElems, treshold);}, false);   
   window.addEventListener("scroll", function(){inView(inviewElems, treshold);}, false);
-  window.addEventListener("scroll",function(){elemObserver(menuElems, 1);} , false);
+  window.addEventListener("scroll",function(){elemObserver(menuElems);} , false);
   
   function pullMenuElems(elems) {
     var arr = [];
@@ -563,19 +563,19 @@ function inactiveState(evt) {
   return removeClass(elem, myClass);
 }
 
-function elemObserver(elems, treshold) {
+function elemObserver(elems) {
     
   for (var i = 0; i < elems.length; i++) {
         
     var observeElem = document.querySelector(elems[i].dataset.observe);
     var arr = observeElem.className.split(" ");
     var ind = arr.indexOf("active");
-    
-    if (ind >= 0){
-      console.log(observeElem); 
-      addClass(elems[i].parentElement, "active");
+           
+    if (ind >= 0 && observeElem.getBoundingClientRect().top < 20){      
+      addClass(elems[i].parentElement, "active");      
       continue;      
     }
+    
     removeClass(elems[i].parentElement, "active");
   }
 }
