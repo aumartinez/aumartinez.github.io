@@ -22,6 +22,14 @@ function animatedList() {
     
     var timer = Math.floor(clock / liStr.length * 0.5);
     
+    window.addEventListener("visibilitychange", 
+      function() {
+        if (document.visibilityState == "hidden"){
+          clearTimeout(typeForward);
+        }        
+      }
+    , false);
+    
     var typeForward = setInterval(
      function() {
        if (i == liStr.length) {
@@ -44,6 +52,14 @@ function animatedList() {
     var timer = 10;
     var i = 0;
     
+    window.addEventListener("visibilitychange", 
+      function() {
+        if (document.visibilityState == "hidden"){
+          clearTimeout(pause);
+        }        
+      }
+    , false);
+    
     var pause = setInterval(
       function() {       
         if (i == timer) {
@@ -62,6 +78,14 @@ function animatedList() {
     elem.innerText = typeStr;
     
     var timer = Math.floor(clock / liStr.length * 0.5);
+    
+    window.addEventListener("visibilitychange", 
+      function() {
+        if (document.visibilityState == "hidden"){
+          clearTimeout(typeBackwards);
+        }        
+      }
+    , false);
     
     var typeBackwards = setInterval(
     function() {      
