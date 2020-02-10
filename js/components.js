@@ -563,19 +563,20 @@ function inactiveState(evt) {
   return removeClass(elem, myClass);
 }
 
-function elemObserver(elems) {
-    
+function elemObserver(elems) {    
   for (var i = 0; i < elems.length; i++) {
         
     var observeElem = document.querySelector(elems[i].dataset.observe);
     var arr = observeElem.className.split(" ");
     var ind = arr.indexOf("active");
-           
-    if (ind >= 0 && observeElem.getBoundingClientRect().top < 20){      
-      addClass(elems[i].parentElement, "active");      
-      continue;      
-    }
     
     removeClass(elems[i].parentElement, "active");
+    
+    if (ind >= 0){
+      var elemPos = observeElem.getBoundingClientRect().top;
+      if (elemPos < 50) {
+        addClass(elems[i].parentElement, "active");  
+      }
+    }
   }
 }
