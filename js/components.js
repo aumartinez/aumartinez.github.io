@@ -26,6 +26,7 @@ function animatedList() {
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(typeForward);
+          return;
         }        
       }
     , false);
@@ -56,6 +57,7 @@ function animatedList() {
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(pause);
+          return;
         }        
       }
     , false);
@@ -83,6 +85,7 @@ function animatedList() {
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(typeBackwards);
+          return;
         }        
       }
     , false);
@@ -126,6 +129,7 @@ function animatedList() {
       function() {
         if (document.visibilityState == "hidden"){
           clearTimeout(cicle);
+          return;
         }        
       }
     , false);
