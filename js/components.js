@@ -156,9 +156,9 @@ function themeSwitcher() {
   var themeIs = "off";
   var switchControls = document.querySelectorAll(".theme-switch .slider");
   
-  addEventListenerToList(switchControls, "click", function() {themeChange(event);});
+  addEventListenerToList(switchControls, "click", themeChange);
     
-  function themeChange(evt) {
+  function themeChange() {
     themeIs = themeIs == "off" ? "on" : "off";    
     themeIs == "on" ? addCSS() : removeCSS();   
   }
