@@ -271,7 +271,7 @@ header::after {
 
 .mobile.theme-switch {
   top: 10px;
-  right: 60px;
+  right: 60px;  
 }
 
 .slider {
@@ -279,8 +279,7 @@ header::after {
   width: 60px;
   height: 35px;
   display: block;
-  cursor: pointer;
-  position: relative;
+  cursor: pointer;  
   padding: 2px;
   float: right;
   margin-right: 15px;
