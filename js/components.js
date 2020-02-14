@@ -189,8 +189,7 @@ function myLib() {
   var countElems = filterElems(elems, "data-animate", "counter");  
   var activeElems = filterElems(elems, "data-toggle", "active");  
   var hoverElems = filterElems(elems, "data-animate", "hover");
-  var typeElems = filterElems(elems, "data-animate", "type");
-  var typeRevElems = filterElems(elems, "data-animate", "typerev");
+  var typeElems = filterElems(elems, "data-animate", "type");  
   var inviewElems = filterElems(elems, "data-animate", "inview");
   var inviewOnceElems = filterElems(elems, "data-animate", "once");
   
@@ -207,14 +206,12 @@ function myLib() {
   addEventListenerToList(inviewOnceElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "inview", function(){activeState(event);});
   addEventListenerToList(inviewElems, "outofview", function(){inactiveState(event);});
-  addEventListenerToList(typeElems, "inview", function(){typeIt(event);});
-  addEventListenerToList(typeRevElems, "inview", function(){typeRev(event);});
+  addEventListenerToList(typeElems, "inview", function(){typeIt(event);});  
   
   //Initial status on page refresh  
   (inviewOnceElems.length > 0) ? inView(inviewOnceElems, treshold) : false;
   (countElems.length > 0) ? inView(countElems, treshold) : false;
-  (typeElems.length > 0) ? inView(typeElems, treshold) : false;
-  (typeRevElems.length > 0) ? inView(typeRevElems, treshold) : false;
+  (typeElems.length > 0) ? inView(typeElems, treshold) : false;  
   (inviewElems.length > 0) ? inView(inviewElems, treshold) : false;
     
   //Window listeners  
@@ -607,4 +604,25 @@ function elemObserver(elems) {
       }
     }
   }
+}
+
+function getPos(elems, treshold) {  
+  let elemPos = [];
+  let curr = [];
+  
+  for (let i = 0; i < elems.length; i++) {
+    if (window.scrollY) {
+      elemPos[i] = elems[i].getBoundingClientRect().top + window.scrollY;
+      curr[i] = window.innerHeight + window.scrollY;
+    }
+    else{
+      elemPos[i] = elems[i].getBoundingClientRect().top + document.documentElement.scrollTop;
+      curr[i] = window.innerHeight + document.documentElement.scrollTop;
+    }
+    if (curr[i] > (elemPos[i] + (elems[i].offsetHeight * treshold))) {
+      addClass(elems[i], "active");
+      let evt = createNewEvent("scrolled");
+      elems[i].dispatchEvent(evt);
+    }
+  } 
 }
