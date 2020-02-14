@@ -310,6 +310,11 @@ header::after {
   transform: translateX(25px);
 }
 
+.header-placeholder {
+  width: 100%;
+  height: 60px;
+}
+
 /* Content */ 
 
 section.sec-cont {  
