@@ -195,7 +195,7 @@ function myLib() {
   
   var elemPosY = [];
   var elemH = [];
-  var treshold = 0.8;
+  var treshold = 1;
         
   //Add listeners  
   addEventListenerToList(linkElems, "click", function(){smoothScroll(event);});

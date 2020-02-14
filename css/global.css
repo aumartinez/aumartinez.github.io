@@ -355,6 +355,12 @@ section .wrapper {
   content: "}";  
 }
 
+#contact,
+#services,
+#about {
+  background-color: #e7e7e7;
+}
+
 /* Footer */
 
 footer {
@@ -422,13 +428,17 @@ footer {
   
   /* Content */
   
+  section.sec-cont {  
+    padding-top: 90px;
+  }
+  
   #intro {
     background-image: url("../img/bg-welcome-light.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
   }
-  
+    
   #ani-list li {    
     font-size: 60px;    
   }
