@@ -318,8 +318,8 @@ header::after {
 }
 
 section.sec-cont {  
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 section.sec-cont.active {
