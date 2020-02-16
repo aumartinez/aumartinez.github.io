@@ -590,16 +590,22 @@ function inactiveState(evt) {
 
 function elemObserver(elems) {    
   for (var i = 0; i < elems.length; i++) {
-        
-    var observeElem = document.querySelector(elems[i].dataset.observe);
-    var arr = observeElem.className.split(" ");
-    var ind = arr.indexOf("active");
-    
     removeClass(elems[i].parentElement, "active");
     
+    var observeElem = document.querySelector(elems[i].dataset.observe);
+    var arr = observeElem.className.split(" ");        
+    var ind = arr.indexOf("active");
+    
     if (ind >= 0){
-      var elemPos = observeElem.getBoundingClientRect().top;
-      if (elemPos < 50) {
+      var elemTopPos = observeElem.getBoundingClientRect().top;
+      var elemBottPos = observeElem.getBoundingClientRect().bottom;
+      
+      if (elemBottPos < 50) {
+        removeClass(elems[i].parentElement, "active");
+        continue;
+      }
+      
+      if (elemTopPos < 50) {
         addClass(elems[i].parentElement, "active");  
       }
     }
