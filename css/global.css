@@ -115,6 +115,11 @@ a.color-white,
   color: #fff;
 }
 
+a.color-lite,
+.color-lite {
+  color: #e7e7e7;
+}
+
 a.btn-primary,
 .btn-primary {
   text-decoration: none;
@@ -396,7 +401,8 @@ section .wrapper {
   height: 360px;
   width: 100%;
   position: absolute;
-  display: table-cell;    
+  display: table-cell;
+  vertical-align: middle;  
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: -webkit-backface-visibility 0.2s;
@@ -435,13 +441,18 @@ section .wrapper {
 }
 
 .card-front-body {
-  display: table-cell;
-  vertical-align: middle;
   width: 100%;
   height: 100%;
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: bold; 
   padding: 0 10px;  
+}
+
+.card-front-body h4 {
+  font-size: 25px;
+}
+
+.card-front-head p {
+  font-size: 60px;
 }
 
 /* Footer */
