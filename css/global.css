@@ -395,11 +395,18 @@ section .wrapper {
   height: 360px;
   width: 100%;
   position: absolute;
+  display: table;    
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: -webkit-backface-visibility 0.2s;
   -webkit-transition: backface-visibility 0.2s;
   transition: backface-visibility 0.2s;
+  -webkit-transition: z-index 0s;
+  -o-transition: z-index 0s;
+  transition: z-index 0s;
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .flip-card-back {
@@ -413,24 +420,17 @@ section .wrapper {
 .flip-card.active .flip-card-inner {
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  display: table;  
-  -webkit-transition: z-index 0s;
-  -o-transition: z-index 0s;
-  transition: z-index 0s;
-  -webkit-transition-delay: 0.2s;
-  -o-transition-delay: 0.2s;
-  transition-delay: 0.2s;  
+  transform: rotateY(180deg);    
+}
+
+.flip-card.active .flip-card-front {
+  z-index: 0;
 }
 
 .flip-card.active .flip-card-back {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
   z-index: 1;
-}
-
-.flip-card.active .flip-card-front {
-  z-index: 0;
 }
 
 .card-front-body {
