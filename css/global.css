@@ -487,9 +487,19 @@ section .wrapper {
   text-align: center;
 }
 
+.icons-list li img{  
+  max-width: 150px;
+}
+
 .icons-list li span{
   display: block;
   text-align: center;
+  padding: 15px 0;
+}
+
+.icons-list li.single-center {
+  float: none;
+  margin: 0 auto;
 }
 
 /* Footer */
