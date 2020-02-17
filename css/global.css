@@ -367,6 +367,8 @@ section .wrapper {
   background-color: #e7e7e7;
 }
 
+/* About me */
+
 .flip-card {
   cursor: pointer;
   height: 360px;
@@ -479,6 +481,17 @@ section .wrapper {
   padding-top: 30px;
 }
 
+/* Tools */
+
+.icons-list li {  
+  text-align: center;
+}
+
+.icons-list li span{
+  display: block;
+  text-align: center;
+}
+
 /* Footer */
 
 footer {
@@ -550,6 +563,8 @@ footer {
     padding-top: 100px;
   }
   
+  /* Welcome */
+  
   #intro {
     background-image: url("../img/bg-welcome-light.png");
     background-repeat: no-repeat;
@@ -559,6 +574,13 @@ footer {
     
   #ani-list li {    
     font-size: 60px;    
+  }
+  
+  /* Tools */
+  
+  .icons-list li {
+    width: 33%;
+    float: left;
   }
     
   /* Footer */
