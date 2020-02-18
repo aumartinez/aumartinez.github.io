@@ -164,7 +164,7 @@ function themeSwitcher() {
   }
   
   function addCSS() {
-    let css = document.createElement("link");
+    var css = document.createElement("link");
     css.rel = "stylesheet";    
     css.href = "css/dark-theme.css";
     css.type = "text/css";
