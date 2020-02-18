@@ -8,3 +8,9 @@ body {
 #intro {
   background-image: url("../img/bg-welcome-dark.png");
 }
+
+#contact,
+#services,
+#about {
+  background-color: #777;
+}
