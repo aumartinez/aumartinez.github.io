@@ -483,13 +483,17 @@ section .wrapper {
 
 /* Tools */
 
+.icons-list {
+  overflow: hidden;
+}
+
 .icons-list li {  
   text-align: center;
   padding: 15px 0;
 }
 
 .icons-list li img{  
-  max-width: 150px;
+  max-width: 125px;
 }
 
 .icons-list li span{
@@ -559,7 +563,11 @@ footer {
   
   .text-center-xs {
     text-align: initial;
-  }  
+  }
+  
+  .icons-2-center {
+    margin-left: 16.666%;
+  }
   
   /* Header */
   
@@ -615,7 +623,8 @@ footer {
   .icons-list li {
     width: 33%;
     float: left;
-  }
+  } 
+  
     
   /* Footer */
   
