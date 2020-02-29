@@ -172,7 +172,7 @@ header::after {
 
 .navbar {
   border: none;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .navbar-default {
@@ -266,6 +266,14 @@ header::after {
 
 .navbar-nav {
   margin-top: 60px;
+}
+
+.navbar-default .navbar-nav > .active > a:active,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a {
+  background-color: #46b3e6;
+  color: #fff;
 }
 
 .theme-switch {
@@ -489,6 +497,7 @@ section .wrapper {
 
 .icons-list {
   overflow: hidden;
+  padding: 0;
 }
 
 .icons-list li {  
@@ -532,6 +541,18 @@ section .wrapper {
   max-width: 50%;
   display: table-cell;
   vertical-align: middle;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background: none;
+}
+
+.carousel-control span:first-child {
+  border-radius: 50%;
+  background-color: #46b3e6;
+  box-sizing: content-box;
+  padding: 15px;
 }
 
 /* Footer */
