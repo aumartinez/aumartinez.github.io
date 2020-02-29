@@ -505,7 +505,13 @@ section .wrapper {
 
 /* Services */
 
+.collapsible-card .card-head a span.card-sign::after {
+  content: "-";
+}
 
+.collapsible-card .card-head a.collapsed span.card-sign::after {
+  content: "+";
+}
 
 /* Footer */
 
