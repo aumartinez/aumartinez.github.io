@@ -45,6 +45,10 @@ div[class*="col-"].col-center {
   text-align: center;
 }
 
+.img-responsive.center {
+  margin: 0 auto;
+}
+
 /* Titles */
 
 h1 {
