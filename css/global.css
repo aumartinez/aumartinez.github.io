@@ -513,6 +513,19 @@ section .wrapper {
   content: "+";
 }
 
+/* Projects */
+
+.carousel-inner .img-wrapper {
+  display: table;
+  width: 100%;
+}
+
+.carousel-inner .img-wrapper li {
+  max-width: 50%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /* Footer */
 
 footer {
