@@ -526,6 +526,7 @@ section .wrapper {
 .icons-list {
   overflow: hidden;
   padding: 0;
+  width: 100%;
 }
 
 .icons-list li {  
@@ -546,6 +547,7 @@ section .wrapper {
 .icons-list li.single-center {
   float: none;
   margin: 0 auto;
+  display: table;
 }
 
 /* Services */
@@ -583,6 +585,19 @@ section .wrapper {
   padding: 15px;
 }
 
+.carousel-indicators .active,
+.carousel-indicators li {
+  border-radius: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: #46b3e6;
+}
+
 /* Footer */
 
 footer {
@@ -616,10 +631,6 @@ footer {
   
   .text-center-xs {
     text-align: initial;
-  }
-  
-  .icons-2-center {
-    margin-left: 16.666%;
   }
   
   /* Header */
@@ -676,7 +687,11 @@ footer {
   .icons-list li {
     width: 33%;
     float: left;
-  } 
+  }
+
+  .icons-2-center li:first-child{
+    margin-left: 16.66%;
+  }  
   
     
   /* Footer */
