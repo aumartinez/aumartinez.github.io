@@ -586,6 +586,19 @@ section .wrapper {
 
 .collapsible-card .card-body li {
   padding: 10px 0;
+  display: table;
+}
+
+.collapsible-card .card-body li i {
+  display: table-cell;
+  font-size: 2em;
+  color: #fff;
+}
+
+.collapsible-card .card-body li span {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 15px;
 }
 
 .collapsible-card .card-head a span.card-sign {
@@ -684,6 +697,11 @@ footer {
   
   .text-center-xs {
     text-align: initial;
+  }
+  
+  .sec-padding {
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
   
   /* Header */
