@@ -9,9 +9,14 @@ body {
   background-color: #777;
 }
 
+.navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-brand {
   color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
 #intro {

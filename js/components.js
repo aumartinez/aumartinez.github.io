@@ -493,6 +493,28 @@ function createNewEvent(evtName) {
   return evt;
 }
 
+function hasClass(elem, myClass) {
+  if (elem.classList) {
+    if (elem.classList.contains(myClass)) {
+      return true;
+    }
+    else {
+      return false;
+    }      
+  }
+  else {
+    var arr = elem.className.split(" ");
+    var i = arr.indexOf(myClass);
+    
+    if (i >= 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }  
+}
+
 function addClass (elem, myClass) {
   if (elem.classList) {
     elem.classList.add(myClass);

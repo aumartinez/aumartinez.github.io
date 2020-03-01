@@ -53,6 +53,10 @@ ul.list-inline {
   margin-left: 0;
 }
 
+.clearfix {
+  clear: both;
+}
+
 /* Titles */
 
 h1 {
@@ -231,15 +235,17 @@ header::after {
 .navbar-toggle.active .top-bar {
   transform: rotate(45deg);
   transform-origin: 0 5px;
-}
-
-.navbar-toggle.active .middle-bar {
-  opacity: 0;
+  background-color: #fff;
 }
 
 .navbar-toggle.active .bottom-bar {
   transform: rotate(-45deg);
-  transform-origin: 5px 0;
+  transform-origin: 5px 0;  
+  background-color: #fff;  
+}
+
+.navbar-toggle.active .middle-bar {
+  opacity: 0;
 }
 
 .navbar-toggle .bottom-bar,
@@ -280,6 +286,11 @@ header::after {
   color: #fff;
 }
 
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
 .navbar-default .navbar-nav > li > a:hover {
   color: #46b3e6;
 }
@@ -292,16 +303,15 @@ header::after {
   width: 0%;
   height: 5px;
   background-color: #46b3e6;
-  left: 50%;
+  left: 0;
   right: 0;
-  -webkit-transition: left 0.5s, width 0.5s;
-  -o-transition: left 0.5s, width 0.5s;
-  transition: left 0.5s, width 0.5s;
+  -webkit-transition: width 0.5s;
+  -o-transition: width 0.5s;
+  transition: width 0.5s;
 }
 
 .navbar-default .navbar-nav > li > a:hover::after {  
-  width: 100%;  
-  left: 0;
+  width: 100%;
 }
 
 .theme-switch {
@@ -424,12 +434,6 @@ section .wrapper {
   transition: transform 0.2s;
 }
 
-.flip-card:hover {
-  -webkit-transform: translateY(-15px);
-  -ms-transform: translateY(-15px);
-  transform: translateY(-15px);
-}
-
 .flip-card.last {
   margin-bottom: 0;
 }
@@ -527,6 +531,7 @@ section .wrapper {
   overflow: hidden;
   padding: 0;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .icons-list li {  
@@ -552,12 +557,59 @@ section .wrapper {
 
 /* Services */
 
+.card-head a {
+  display: block;
+  background-color: #317ea2;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.card-head a span {
+  float: right;
+  display: block;
+  background-color: #acddf4;  
+}
+
+.collapsible-card {
+  padding: 0;
+  margin: 30px 0;
+}
+
+.collapsible-card .card-body {
+  padding: 30px 15px;
+  background-color: #acddf4;
+  color: #000;
+  font-size: 18px;
+}
+
+.collapsible-card .card-body li {
+  padding: 10px 0;
+}
+
+.collapsible-card .card-head a span.card-sign {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
 .collapsible-card .card-head a span.card-sign::after {
   content: "-";
+  color: #000;
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
 }
 
 .collapsible-card .card-head a.collapsed span.card-sign::after {
   content: "+";
+  color: #000;
 }
 
 /* Projects */
@@ -590,8 +642,9 @@ section .wrapper {
   border-radius: 0;
   width: 25px;
   height: 25px;
-  background-color: #fff;
+  background-color: #acddf4;
   border: none;
+  margin: 0;
 }
 
 .carousel-indicators .active {
@@ -653,6 +706,11 @@ footer {
     margin: 0;
   }
   
+  .navbar-default .navbar-nav > li > a:focus,
+  .navbar-default .navbar-nav > li > a {
+    color: #777;
+  }
+  
   .navbar-collapse.sidenavbar {
     position: relative;
     width: auto;
@@ -661,6 +719,19 @@ footer {
     z-index: 0;
     top: auto;
     background-color: transparent;
+  }
+
+  .navbar-default .navbar-nav > li > a::after {    
+    width: 0%;    
+    left: 50%;
+    -webkit-transition: left 0.5s, width 0.5s;
+    -o-transition: left 0.5s, width 0.5s;
+    transition: left 0.5s, width 0.5s;    
+  }
+
+  .navbar-default .navbar-nav > li > a:hover::after {  
+    width: 100%;  
+    left: 0;
   }  
   
   /* Content */
@@ -682,14 +753,26 @@ footer {
     font-size: 60px;    
   }
   
+  /* About */
+  
+  .flip-card:hover {
+    -webkit-transform: translateY(-25px);
+    -ms-transform: translateY(-25px);
+    transform: translateY(-25px);
+  }
+  
   /* Tools */
+  
+  .icons-list {
+    padding: 45px 0;
+  }
   
   .icons-list li {
     width: 33%;
     float: left;
   }
 
-  .icons-2-center li:first-child{
+  .icons-2-center{
     margin-left: 16.66%;
   }  
   
