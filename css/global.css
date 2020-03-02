@@ -671,6 +671,14 @@ section .wrapper {
   padding: 15px;
 }
 
+.carousel-indicators {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+}
+
 .carousel-indicators .active,
 .carousel-indicators li {
   border-radius: 0;
@@ -682,7 +690,7 @@ section .wrapper {
 }
 
 .carousel-indicators .active {
-  background-color: #46b3e6;
+  background-color: #317ea2;
 }
 
 /* Footer */
