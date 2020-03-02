@@ -625,6 +625,28 @@ section .wrapper {
   color: #000;
 }
 
+.logos-list {
+  padding: 0;
+}
+
+.logos-list li {
+  width: 16.666%;
+  display: inline-block;
+}
+
+.logos-list li span,
+.logos-list li img {
+  display: block;
+}
+
+.logos-list li img {
+  margin: 0 auto;
+}
+
+.logos-list li span {
+  text-align: center;
+}
+
 /* Projects */
 
 .carousel-inner .img-wrapper {
@@ -792,6 +814,13 @@ footer {
 
   .icons-2-center{
     margin-left: 16.66%;
+  }
+
+  /* Services */
+
+  .logos-list li {
+    width: 16.666%;
+    display: inline-block;
   }  
   
     
