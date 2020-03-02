@@ -630,13 +630,9 @@ section .wrapper {
 }
 
 .logos-list li {
-  width: 16.666%;
+  width: 50%;
   display: inline-block;
-}
-
-.logos-list li span,
-.logos-list li img {
-  display: block;
+  float: left;
 }
 
 .logos-list li img {
@@ -645,6 +641,9 @@ section .wrapper {
 
 .logos-list li span {
   text-align: center;
+  display: block;
+  padding: 15px 0;
+  font-size: 14px;
 }
 
 /* Projects */
@@ -820,10 +819,12 @@ footer {
 
   .logos-list li {
     width: 16.666%;
-    display: inline-block;
-    float: left;
+    padding: 0 10px;
   }  
   
+  .logos-list li span {
+    font-size: 16px;
+  }
     
   /* Footer */
   
