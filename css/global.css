@@ -821,6 +821,7 @@ footer {
   .logos-list li {
     width: 16.666%;
     display: inline-block;
+    float: left;
   }  
   
     
