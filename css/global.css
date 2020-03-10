@@ -650,6 +650,7 @@ section .wrapper {
 .carousel-inner .img-wrapper {
   display: table;
   width: 100%;
+  table-layout: fixed;
 }
 
 .carousel-inner .img-wrapper li {
