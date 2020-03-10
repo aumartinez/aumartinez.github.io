@@ -837,7 +837,15 @@ footer {
   .collapsible-card {
     margin: 30px 0;
   }
-    
+  
+  /* Projects */
+  
+  .carousel-inner .img-wrapper li:first-child {
+    width: 60%;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
   /* Footer */
   
 }
