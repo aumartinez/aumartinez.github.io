@@ -53,4 +53,4 @@ function stopLoader() {
 
 loader();
 
-window.addEventListener("load", stopLoader, false);
+window.addEventListener("DOMContentLoaded", stopLoader, false);
