@@ -566,7 +566,7 @@ section .wrapper {
   padding: 10px;
 }
 
-.card-head a span {
+.card-head a span:last-child {
   float: right;
   display: block;
   background-color: #acddf4;  
