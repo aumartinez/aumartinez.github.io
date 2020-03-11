@@ -57,6 +57,13 @@ ul.list-inline {
   clear: both;
 }
 
+div.no-bottom,
+section.no-bottom,
+.sec-cont.no-bottom,
+.no-bottom {
+  padding-bottom: 0;
+}
+
 /* Titles */
 
 h1 {
@@ -710,11 +717,11 @@ ul.clients-list li {
 }
 
 ul.clients-list li.logo-stack {
-  max-width: 150px;
+  width: 150px;
 }
 
 ul.clients-list li.logo-stripe {
-  max-width: 300px;
+  width: 300px;
 }
 
 ul.clients-list li img {
@@ -874,6 +881,16 @@ footer {
     width: 60%;
     display: table-cell;
     vertical-align: middle;
+  }
+  
+  ul.clients-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex: 1 0 auto;
   }
   
    ul.clients-list li {  
