@@ -693,6 +693,36 @@ section .wrapper {
   background-color: #317ea2;
 }
 
+.clients-banner {
+  padding: 30px 0;
+}
+
+ul.clients-list {
+  padding: 0;
+  margin: 0;
+}
+
+ul.clients-list li {  
+  display: block;
+  vertical-align: middle;
+  padding: 15px 15px;
+  margin: 0 auto;
+}
+
+ul.clients-list li.logo-stack {
+  max-width: 150px;
+}
+
+ul.clients-list li.logo-stripe {
+  max-width: 300px;
+}
+
+ul.clients-list li img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 /* Footer */
 
 footer {
@@ -844,6 +874,11 @@ footer {
     width: 60%;
     display: table-cell;
     vertical-align: middle;
+  }
+  
+   ul.clients-list li {  
+    display: inline-block;    
+    padding: 0 15px;
   }
   
   /* Footer */
