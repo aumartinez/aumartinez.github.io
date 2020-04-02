@@ -730,6 +730,16 @@ ul.clients-list li img {
   margin: 0 auto;
 }
 
+/* Contact */
+
+#contact-form {
+  padding: 15px;
+}
+
+form textarea.form-control {
+  width: 100% !important;
+}
+
 /* Footer */
 
 footer {
