@@ -27,12 +27,16 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+    
 		<!-- link to main stylesheet -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="css/global.css" type="text/css" />
     <link rel="stylesheet" href="css/animations.css" type="text/css" />
+    
+    <!-- scripts -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 	</head>
 	<body id="top">
     <script src="js/loader.js"></script>
@@ -655,16 +659,36 @@
               </h2>
               
               <div class="row">
-                <div class="col-sm-10 col-md-6 col-center`">
-                  <form id="contact-form" action="https://accedo-gps.000webhostapp.com/contact.php" method="post">
+                <div class="col-sm-10 col-md-6 col-center">
+                  <form class="bg-secondary color-white" id="contact-form" action="https://accedo-gps.000webhostapp.com/contact.php" method="post">
                     <legend>
-                      <h3>
+                      <h3 class="color-white">
                         Drop me a line
                       </h3>
                     </legend>
                     
                     <fieldset>
                       <div class="form-group">
+                        <p class="required">
+                          required <span class="required">*</span>
+                        </p>
+                        <label for="name">
+                          Name <span class="required">*</span>
+                        </label>
+                        <input id="name" name="name" type="text" placeholder="Name" />
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="email">
+                          Email <span class="required">*</span>
+                        </label>
+                        <input id="email" name="email" type="text" placeholder="Email" />
+                      </div>
+                      
+                      <div class="from-group">
+                        <p class="text-center">
+                          <button class="btn-primary" type="submit">Submit</button>
+                        </p>
                       </div>
                     </fieldset>
                   </form>
