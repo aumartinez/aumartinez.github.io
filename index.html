@@ -672,7 +672,10 @@
                       </h3>
                     </legend>
                     
-                    <div class="error-div">
+                    <div id="success-div" class="alert alert-success">
+                    </div>
+                    
+                    <div id="error-div">
                     </div>
                     
                     <fieldset>                    
@@ -703,7 +706,7 @@
                         <label for="message">
                           Message <span class="required">*</span>
                         </label>
-                        <textarea class="form-control"></textarea>
+                        <textarea id="message" name="message" class="form-control"></textarea>
                         <div class="err-mess">
                           <p><span class="required">*</span> Please let me know how I can help you</p>
                         </div>

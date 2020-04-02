@@ -748,6 +748,10 @@ input.form-control {
   border-radius: 0;
 }
 
+.err-mess {
+  display: none;
+}
+
 /* Footer */
 
 footer {

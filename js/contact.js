@@ -20,4 +20,11 @@ $(document).ready(function(){
       $(".loader").removeClass("active");
     }
   });
+  
+  function validateForm(){
+    var arr = [];
+    
+    //Required
+    
+  }
 });
