@@ -11,6 +11,7 @@ $(document).ready(function(){
     
     if (errros.length == 0) {
       $.post(url);
+      removeValues();
     }
     else {
       removeErrors();
