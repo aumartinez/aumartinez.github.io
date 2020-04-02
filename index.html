@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/animations.css" type="text/css" />
     
     <!-- scripts -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 	</head>
 	<body id="top">
     <script src="js/loader.js"></script>
@@ -685,6 +685,10 @@
                         <input id="email" name="email" type="text" placeholder="Email" />
                       </div>
                       
+                      <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LcoQeYUAAAAAMqko3cFOlT_jzZ3tDsjbSv8PvAq"></div>
+                      </div>
+                      
                       <div class="from-group">
                         <p class="text-center">
                           <button class="btn-primary" type="submit">Submit</button>
@@ -705,15 +709,18 @@
         <div class="row">
           <div class="col-xs-12">          
             <h2 class="color-white">
-              The Footer Title
+              Awesome web awaits to be coded
             </h2>
             
             <p class="color-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
             
-            <ul>
-              <li><a href="mailto:acm_asd@hotmail.com">email</a></li>
+            <h4>
+              Go social
+            </h4>
+            
+            <ul>              
               <li><a href="https://github.com/aumartinez">github.com/aumartinez</a></li>
             </ul>
           </div>
