@@ -156,7 +156,9 @@ a.btn-primary,
 
 .btn-primary:hover,
 a.btn-primary:hover {  
+  color: #fff;
   cursor: pointer;
+  background-color: #46b3e6;
   opacity: 0.7;
 }
 
@@ -738,6 +740,12 @@ ul.clients-list li img {
 
 form textarea.form-control {
   width: 100% !important;
+}
+
+textarea.form-control,
+input.form-control {
+  border: 0;
+  border-radius: 0;
 }
 
 /* Footer */
