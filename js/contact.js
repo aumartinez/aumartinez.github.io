@@ -34,6 +34,9 @@ $(document).ready(function(){
     if ($("#message").val().length == 0) {
       arr.push("message");
     }
+    if ($("#g-recaptcha-response").val().length == 0) {
+      $(".g-recaptcha").next().addClass("active");
+    }
     
     return arr;
   }
