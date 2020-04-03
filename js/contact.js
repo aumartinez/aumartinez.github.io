@@ -9,7 +9,7 @@ $(document).ready(function(){
     
     var errors = validateForm();
     
-    if (errros.length == 0) {
+    if (errors.length == 0) {
       $.post(url);
       removeValues();
     }
