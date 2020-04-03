@@ -79,6 +79,8 @@ $(document).ready(function(){
   
   function removeErrors() {
     $(".err-mess.active").removeClass("active");
+    $("#error-div").removeClass("active");
+    $("#success-div").removeClass("active");
   }
   
   function removeValues() {
