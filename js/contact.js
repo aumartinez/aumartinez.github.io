@@ -22,23 +22,34 @@ $(document).ready(function(){
   });
   
   function validateForm(){
-    var arr = [];
+    var errors = [];
     
     //Required
     if($("#name").val().length == 0) {
-      arr.push("name");
+      errors.push("name");
     }
     if ($("#email").val().length == 0) {
-      arr.push("email");
+      errors.push("email");
     }
     if ($("#message").val().length == 0) {
-      arr.push("message");
+      errors.push("message");
     }
+    
+    //Validate Captcha
     if ($("#g-recaptcha-response").val().length == 0) {
       $(".g-recaptcha").next().addClass("active");
     }
     
-    return arr;
+    //Validate email    
+    var email = $("#email").val();
+    var regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var testEmail = regExp.exec(email);
+    
+    if (!testEmail) {
+       errors.push("email");
+    }
+    
+    return errors;
   }
   
   function displayErrors(errors) {
