@@ -4,10 +4,12 @@ class Form {
   
   private $url;
   private $errors = array();
+  private $error_count;
   
   public function __construct() {
     $this->url = $_SERVER["HTTP_REFERER"];
     $this->errors = array();
+    $this->error_count = 1;
   }
   
   public function validate_url() {
@@ -23,10 +25,11 @@ class Form {
                 "email",
                 "message"
                 );
-                
+    
     foreach ($required as $value) {
       if(!isset($_POST[$value]) || $_POST[$value] == "") {
-        $this->errors[] = ucfirst($value) . " is required";
+        $this->errors[] = "error-" . $this->error_count => ucfirst($value) . " is required";
+        $this->error_count++;
       }
     }
     
