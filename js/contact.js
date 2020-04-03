@@ -22,11 +22,11 @@ $(document).ready(function(){
       var posting = $.post(url , data);
       posting.done(function(response){
         var str = response.message;
-        $("#success-div").text(str);        
+        $("#success-div").addClass("active");
+        $("#success-div").text(str);
+        $("#contact-form")[0].reset();
+        $(".loader").removeClass("active");
       });
-      
-      $("#contact-form")[0].reset();
-      $(".loader").removeClass("active");
       
     }
     else {
