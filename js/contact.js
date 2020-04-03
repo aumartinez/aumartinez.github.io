@@ -9,8 +9,7 @@ $(document).ready(function(){
     
     var errors = validateForm();
     
-    if (errors.length == 0) {
-      evt.preventDefault();
+    if (errors.length == 0) {      
       
       var data = {
         "name" : $("#name").val(),
@@ -20,8 +19,8 @@ $(document).ready(function(){
       }
       
       var posting = $.post(url , data);
-      posting.done(function(data){
-        var arr = $.parseJSON(data);
+      posting.done(function(response){
+        var arr = $.parseJSON(response);
         console.log(arr);
       });
       
