@@ -28,7 +28,12 @@ $(document).ready(function(){
         $("#success-div").text(str);
         $("#contact-form")[0].reset();
         $(".loader").removeClass("active");
-      });
+      }).fail(function(response){
+        $("#error-div").addClass("active");
+        $("#error-div").text("Server error, try again later");
+        $("#contact-form")[0].reset();
+        $(".loader").removeClass("active");
+      };
       
     }
     else {
