@@ -13,10 +13,10 @@ $(document).ready(function(){
       evt.preventDefault();
       
       var data = {
-        name : $("#name").val(),
-        email : $("#email").val(),
-        message : $("#message").val(),
-        g-recaptcha-response : $("#g-recaptcha-response").val()
+        "name" : $("#name").val(),
+        "email" : $("#email").val(),
+        "message" : $("#message").val(),
+        "g-recaptcha-response" : $("#g-recaptcha-response").val()
       }
       
       $.post(url , data);
