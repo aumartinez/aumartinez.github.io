@@ -38,6 +38,7 @@ $(document).ready(function(){
     //Validate Captcha
     if ($("#g-recaptcha-response").val().length == 0) {
       $(".g-recaptcha").next().addClass("active");
+      errors.push("recaptcha");
     }
     
     //Validate email    
@@ -62,7 +63,7 @@ $(document).ready(function(){
   }
   
   function removeErrors() {
-    $(".error-mess.active").removeClass("active");
+    $(".err-mess.active").removeClass("active");
   }
   
 });
