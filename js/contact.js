@@ -25,7 +25,7 @@ $(document).ready(function(){
         $("#success-div").text(str);        
       });
       
-      $("#contact-form").reset();
+      $("#contact-form")[0].reset();
       $(".loader").removeClass("active");
       
     }
