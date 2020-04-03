@@ -22,11 +22,11 @@ $(document).ready(function(){
       var posting = $.post(url , data);
       posting.done(function(response){
         var str = response.message;
-        console.log(str);
+        $("#success-div").text(str);
+        removeValues();
+        $(".loader").removeClass("active");
       });
       
-      removeValues();
-      $(".loader").removeClass("active");
     }
     else {
       removeErrors();
