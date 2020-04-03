@@ -139,7 +139,7 @@ class Form {
       </html>';
       
     $to = $this->email;
-    $subject = "New message received";
+    $subject = "Your message was received";
     $txt = $emailbody;
     $headers = array(
                 "MIME-Version: 1.0",
