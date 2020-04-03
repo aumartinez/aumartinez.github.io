@@ -33,7 +33,7 @@ $(document).ready(function(){
         $("#error-div").text("Server error, try again later");
         $("#contact-form")[0].reset();
         $(".loader").removeClass("active");
-      };
+      });
       
     }
     else {
