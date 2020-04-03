@@ -24,9 +24,9 @@ class Form {
                 "message"
                 );
                 
-    foreach ($_POST as $value) {
+    foreach ($required as $value) {
       if(!isset($_POST[$value]) || $_POST[$value] == "") {
-        $this->errors[] = $value . " is required";
+        $this->errors[] = ucfirst($value) . " is required";
       }
     }
     
@@ -34,7 +34,7 @@ class Form {
   }
   
   public function error_check() {    
-    echo json_encode($this->errors);    
+    echo json_encode($this->errors, JSON_FORCE_OBJECT);    
   }
 }
 
