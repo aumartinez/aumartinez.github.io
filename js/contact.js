@@ -19,7 +19,7 @@ $(document).ready(function(){
         "g-recaptcha-response" : $("#g-recaptcha-response").val()
       }
       
-      $.post(url , data);
+      var posting = $.post(url , data);
       posting.done(function(data){
         var arr = $.parseJSON(data);
         console.log(arr);
