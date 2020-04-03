@@ -761,6 +761,30 @@ input.form-control {
   display: none;
 }
 
+.loader {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.loader img {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  top: 35%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.loader.active {
+  display: block;
+}
+
 /* Footer */
 
 footer {

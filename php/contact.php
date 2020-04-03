@@ -28,13 +28,13 @@ class Form {
     
     foreach ($required as $value) {
       if(!isset($_POST[$value]) || $_POST[$value] == "") {
-        $this->errors[] = "error-" . $this->error_count => ucfirst($value) . " is required";
+        $this->errors["error-" . $this->error_count] = ucfirst($value) . " is required";
         $this->error_count++;
       }
     }
     
     $this->error_check();    
-  }
+  }   
   
   public function error_check() {    
     echo json_encode($this->errors, JSON_FORCE_OBJECT);    
