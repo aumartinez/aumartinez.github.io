@@ -21,8 +21,8 @@ $(document).ready(function(){
       
       var posting = $.post(url , data);
       posting.done(function(response){
-        var arr = $.parseJSON(response);
-        console.log(arr);
+        var str = response.message;
+        console.log(str);
       });
       
       removeValues();

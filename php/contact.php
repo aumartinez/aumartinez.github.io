@@ -50,7 +50,7 @@ class Form {
   
   public function success() {
     $mess = array();
-    $mess["data"] = "Information was successfully submitted";
+    $mess["message"] = "Information was successfully submitted";
     echo json_encode($mess, JSON_FORCE_OBJECT);
   }
   
