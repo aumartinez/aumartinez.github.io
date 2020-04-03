@@ -10,6 +10,7 @@ $(document).ready(function(){
     var errors = validateForm();
     
     if (errors.length == 0) {      
+      evt.preventDefault();
       
       var data = {
         "name" : $("#name").val(),
