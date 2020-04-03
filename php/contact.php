@@ -132,7 +132,9 @@ class Form {
             <hr />
             
             <p>
-              Hi, '. $this->name .', thanks for reaching out ,I\'ll get back to you shortly.
+              Hi, '. $this->name .',
+            </p>
+            <p>Thanks for reaching out ,I\'ll get back to you shortly.
             </p>
           </div>
         </body>

@@ -12,6 +12,8 @@ $(document).ready(function(){
     if (errors.length == 0) {      
       evt.preventDefault();
       
+      removeErrors();
+      
       var data = {
         "name" : $("#name").val(),
         "email" : $("#email").val(),
