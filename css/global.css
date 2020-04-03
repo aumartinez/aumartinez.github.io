@@ -795,6 +795,14 @@ footer {
   padding: 45px 0;
 }
 
+ul.social {
+  padding: 0;
+}
+
+footer .icon {
+  font-size: 24px;
+}
+
 /* Form */
 
   
