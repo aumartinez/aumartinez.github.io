@@ -23,7 +23,8 @@ class Form {
     $required = array(
                 "name",
                 "email",
-                "message"
+                "message",
+                "g-recaptcha-response"
                 );
     
     foreach ($required as $value) {
@@ -34,7 +35,11 @@ class Form {
     }
     
     $this->error_check();    
-  }   
+  }
+  
+  public function submit() {
+    
+  }
   
   public function error_check() {    
     echo json_encode($this->errors, JSON_FORCE_OBJECT);    
