@@ -10,8 +10,23 @@ $(document).ready(function(){
     var errors = validateForm();
     
     if (errors.length == 0) {
-      $.post(url);
+      evt.preventDefault();
+      
+      var data = {
+        name : $("#name").val(),
+        email : $("#email").val(),
+        message : $("#message").val(),
+        g-recaptcha-response : $("#g-recaptcha-response").val()
+      }
+      
+      $.post(url , data);
+      posting.done(function(data){
+        var arr = $.parseJSON(data);
+        console.log(arr);
+      });
+      
       removeValues();
+      $(".loader").removeClass("active");
     }
     else {
       removeErrors();
@@ -63,6 +78,13 @@ $(document).ready(function(){
   
   function removeErrors() {
     $(".err-mess.active").removeClass("active");
+  }
+  
+  function removeValues() {
+    $("#name").val() == "";
+    $("#email").val() == "";
+    $("#message").val() == "";
+    $("#g-recaptcha-response").val() == "";
   }
   
 });

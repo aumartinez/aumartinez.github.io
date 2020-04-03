@@ -37,17 +37,32 @@ class Form {
     $this->error_check();    
   }
   
+  public function sanitize() {
+    
+  }
+  
   public function submit() {
     
   }
   
-  public function error_check() {    
-    echo json_encode($this->errors, JSON_FORCE_OBJECT);    
+  public function success() {
+    $mess = array();
+    $mess["Data"] = "Information was successfully submitted"; 
+    echo json_encode($mess, JSON_FORCE_OBJECT);
+  }
+  
+  public function error_check() {
+    if(count($this->errors) > 0) {
+      echo json_encode($this->errors, JSON_FORCE_OBJECT);      
+    }
   }
 }
 
 $form = new Form();
 $form->validate_url();
 $form->validate_required();
+$form->sanitize();
+$form->submit();
+$form->success();
 
 ?>
