@@ -6,7 +6,9 @@ class Form {
   private $errors = array();
   private $error_count;
   
-  public function __construct() {
+  public function __construct() {    
+    header("Access-Control-Allow-Origin: https://aumartinez.github.io");
+    header("Content-Type: application/json");
     $this->url = $_SERVER["HTTP_REFERER"];
     $this->errors = array();
     $this->error_count = 1;
@@ -46,9 +48,8 @@ class Form {
   }
   
   public function success() {
-    $mess = array();
-    $mess["Data"] = "Information was successfully submitted"; 
-    echo json_encode($mess, JSON_FORCE_OBJECT);
+    header("Location: https://aumartinez.github.io/#contact");    
+    exit();    
   }
   
   public function error_check() {
