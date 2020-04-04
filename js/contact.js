@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
   //To do
+    
   var url = $("#contact-form").attr("action");
   
   $("#contact-form").submit(function(evt){
