@@ -216,6 +216,11 @@ header::after {
   z-index: 3;
 }
 
+.navbar-brand > img {
+  display: inline;
+  height: 20px;
+}
+
 .navbar-toggle {
   border-radius: 0;  
   z-index: 3;
@@ -377,10 +382,20 @@ header::after {
 }
 
 
-/* Content */ 
+/* Welcome */ 
 
 #intro {
-  
+  background-image: url("../img/bg-welcome-light.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-intro {
+  background-image: url("../img/intro-bg.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 50%;
 }
 
 section.sec-cont {  
@@ -899,11 +914,11 @@ ul.social a {
   
   /* Welcome */
   
-  #intro {
-    background-image: url("../img/bg-welcome-light.png");
+  .bg-intro {
+    background-image: url("../img/intro-bg.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-position: top right;
+    background-size: 50%;
   }
     
   #ani-list li {    
