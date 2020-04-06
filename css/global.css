@@ -950,6 +950,10 @@ ul.social a {
     transform: translateY(-25px);
   }
   
+  .flip-card .card-back-body p {
+    font-size: 16px;
+  }
+  
   /* Tools */
   
   .icons-list {
@@ -1008,6 +1012,7 @@ ul.social a {
 }
 
 @media (min-width: 992px) {
+  
   /* Global */
   
   h1 {
@@ -1018,5 +1023,10 @@ ul.social a {
       
   #ani-list li {    
     font-size: 60px;    
+  }
+  
+  /* About */
+  .flip-card .card-back-body p {
+    font-size: 20px;
   }
 }
