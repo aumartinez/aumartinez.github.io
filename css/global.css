@@ -251,7 +251,7 @@ header::after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  transform-origin: 0 5px;
+  transform-origin: 0 5px;  
   background-color: #fff;
 }
 
