@@ -271,7 +271,11 @@ header::after {
 
 .navbar-toggle .bottom-bar,
 .navbar-toggle .top-bar {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
   transform: rotate(0);
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
   transform-origin: 0;
 }
 
@@ -384,6 +388,8 @@ header::after {
 }
 
 .slider.active::before {
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
   transform: translateX(25px);
 }
 
