@@ -345,8 +345,7 @@ header::after {
 
 .theme-switch {
   position: fixed;
-  z-index: 10;
-  width: 100%;
+  z-index: 10;  
   max-width: 1170px;
   display: block;
   margin: auto;
@@ -883,8 +882,7 @@ ul.social a {
   }
   
   /* Header */
-  
-  
+      
   /* Navigation */
   
   .navbar {
@@ -928,6 +926,10 @@ ul.social a {
   }  
   
   /* Content */
+  
+  .theme-switch {
+    width: 100%;
+  }
   
   section.sec-cont {  
     padding-top: 100px;
