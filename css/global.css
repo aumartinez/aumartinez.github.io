@@ -243,6 +243,8 @@ header::after {
 
 .navbar-toggle .icon-bar {
   height: 3px;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
   border-radius: 0;
 }
@@ -291,7 +293,9 @@ header::after {
   background-color: #404040;
   right: -30px;
   top: 0;
-  transition: all 0.2s;  
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .navbar-collapse.sidenavbar.active {
@@ -372,6 +376,8 @@ header::after {
   display: block;
   width: 30px;
   height: 30px;  
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
 }
 
