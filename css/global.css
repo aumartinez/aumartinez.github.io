@@ -15,7 +15,7 @@
 
 body{
   font-family: "Acherus", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
@@ -67,15 +67,15 @@ section.no-bottom,
 /* Titles */
 
 h1 {
-  font-size: 36px;
+  font-size: 40px;
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 36px;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 30px;
 }
 
 h1,
@@ -248,14 +248,20 @@ header::after {
 }
 
 .navbar-toggle.active .top-bar {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   transform-origin: 0 5px;
   background-color: #fff;
 }
 
 .navbar-toggle.active .bottom-bar {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  transform-origin: 5px 0;  
+  -webkit-transform-origin: 5px 0;
+  -ms-transform-origin: 5px 0;
+  transform-origin: 5px 0;
   background-color: #fff;  
 }
 
@@ -836,7 +842,7 @@ ul.social a {
   /* Global */
   
   h1 {
-    font-size: 80px;
+    font-size: 60px;
   }
   
   h2 {
@@ -864,9 +870,6 @@ ul.social a {
   
   /* Header */
   
-  header {
-    
-  }
   
   /* Navigation */
   
@@ -919,7 +922,7 @@ ul.social a {
   /* Welcome */
       
   #ani-list li {    
-    font-size: 60px;    
+    font-size: 40px;    
   }
   
   div.bg-intro::after {
@@ -990,4 +993,18 @@ ul.social a {
   
   /* Footer */
   
+}
+
+@media (min-width: 992px) {
+  /* Global */
+  
+  h1 {
+    font-size: 80px;
+  } 
+  
+  /* Welcome */
+      
+  #ani-list li {    
+    font-size: 60px;    
+  }
 }
