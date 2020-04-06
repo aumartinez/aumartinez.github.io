@@ -420,6 +420,7 @@ div.bg-intro::after {
   height: 100%;
   top: 0;
   right: 0;
+  display: block;
 }
 
 section.sec-cont {  
