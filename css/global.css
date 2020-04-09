@@ -20,8 +20,6 @@ body{
   background-color: #fff;
   color: #333;
   overflow-x: hidden;
-  position: relative;
-  z-index: 1;
 }
 
 header,
@@ -775,7 +773,7 @@ ul.clients-list li img {
 
 /* Contact */
 
-#contact {
+#contact.active {
   position: relative;
   z-index: 1;
 }
@@ -838,7 +836,10 @@ input.form-control {
 /* Footer */
 
 footer {
-  padding: 45px 0;
+  padding: 45px 0;  
+}
+
+#contact.active ~ footer {
   position: fixed;
   z-index: 0;
   width: 100%;
