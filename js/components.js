@@ -3,6 +3,7 @@
 window.addEventListener("load", myLib, false);
 window.addEventListener("load", themeSwitcher, false);
 window.addEventListener("load", animatedList, false);
+window.addEventListener("load", bottomParalax, false);
 window.addEventListener("resize", bottomParalax, false);
 
 function bottomParalax() {
