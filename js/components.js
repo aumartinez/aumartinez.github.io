@@ -3,6 +3,16 @@
 window.addEventListener("load", myLib, false);
 window.addEventListener("load", themeSwitcher, false);
 window.addEventListener("load", animatedList, false);
+window.addEventListener("resize", bottomParalax, false);
+
+function bottomParalax() {
+  var footer = document.querySelector("footer");
+  var footerHeight = footer.offsetHeight;
+  
+  var contact = document.querySelector("#contact");
+  
+  contact.style.marginBottom = footerHeight + "px";
+}
 
 function animatedList() {  
   var list = document.querySelector("#ani-list");
