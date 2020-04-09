@@ -846,8 +846,8 @@ footer {
   bottom: 0;  
 }
 
-#projects.active ~ footer {
-  height: 0;
+#projects.active ~ #contact ~ footer {
+  z-index: -999;
 }
 
 ul.social {
