@@ -426,6 +426,7 @@ div.bg-intro::after {
 section.sec-cont {  
   padding-top: 90px;
   padding-bottom: 60px;
+  height: 100vh;
 }
 
 section .wrap-helper {
