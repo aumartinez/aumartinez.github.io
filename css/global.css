@@ -773,6 +773,11 @@ ul.clients-list li img {
 
 /* Contact */
 
+#contact {
+  position: relative;
+  z-index: 1;
+}
+
 #contact-form {
   padding: 15px;
 }
@@ -832,6 +837,9 @@ input.form-control {
 
 footer {
   padding: 45px 0;
+  position: fixed;
+  z-index: 0;
+  width: 100%;
 }
 
 ul.social {
