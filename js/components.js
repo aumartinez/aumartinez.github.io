@@ -8,11 +8,9 @@ window.addEventListener("resize", bottomParalax, false);
 
 function bottomParalax() {
   var footer = document.querySelector("footer");
-  var footerHeight = footer.offsetHeight;
-  
   var contact = document.querySelector("#contact");
   
-  contact.style.marginBottom = footerHeight + "px";
+  contact.style.marginBottom = footer.offsetHeight + "px";
 }
 
 function animatedList() {  
