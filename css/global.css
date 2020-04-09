@@ -846,6 +846,10 @@ footer {
   bottom: 0;
 }
 
+#projects.active ~ footer {
+  height: 0;
+}
+
 ul.social {
   padding: 0;
 }
