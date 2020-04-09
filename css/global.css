@@ -839,7 +839,7 @@ footer {
   padding: 45px 0;  
 }
 
-#contact.active ~ footer {
+#contact.active ~ footer.active {
   position: fixed;
   z-index: 0;
   width: 100%;
