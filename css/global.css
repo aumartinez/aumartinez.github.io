@@ -839,15 +839,15 @@ footer {
   padding: 45px 0;  
 }
 
-#projects.active ~ footer {
-  height: 0;
-}
-
-#contact.active ~ footer.active {
+#contact.active ~ footer {
   position: fixed;
   z-index: 0;
   width: 100%;
   bottom: 0;  
+}
+
+#projects.active ~ footer {
+  height: 0;
 }
 
 ul.social {
