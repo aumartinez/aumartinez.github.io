@@ -832,6 +832,7 @@ input.form-control {
 
 .loader.active {
   display: block;
+  z-index: 999;
 }
 
 /* Footer */
