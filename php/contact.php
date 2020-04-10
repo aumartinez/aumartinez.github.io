@@ -136,6 +136,16 @@ class Form {
             </p>
             <p>Thanks for reaching out ,I\'ll get back to you shortly.
             </p>
+            
+            <div style="padding-top: 5px; padding-bottom: 5px; padding-left: 40px; border-left: 3px solid #000">
+              <h4 style="font-style: italic;">
+                Augusto Martinez Rivas
+              </h4>
+              <p>
+                Web developer <br />
+                AM\CodeCraft
+              </p>
+            </div>
           </div>
         </body>
       </html>';
