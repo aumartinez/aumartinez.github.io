@@ -367,7 +367,7 @@ header::after {
   cursor: pointer;  
   padding: 2px;
   float: right;
-  margin-right: 15px;
+  margin-right: 15px;  
 }
 
 .slider::before {
@@ -390,7 +390,7 @@ header::after {
 }
 
 .slider.active {
-  background-color: #66bb6a;
+  background-color: #66bb6a;  
 }
 
 .slider.active::before {
@@ -471,17 +471,16 @@ section .wrapper {
 
 .flip-card {
   cursor: pointer;
+  background-color: transparent;
   height: 360px;
   width: 100%;
-  background-color: transparent;
+  margin-bottom: 15px; 
   -webkit-perspective: 1000px;
   perspective: 1000px;
-  margin-bottom: 15px;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
-  transition: -ms-transform 0.2s;
-  -o-transition: transform 0.2s;
-  transition: transform 0.2s;
+  -webkit-transition: transform 0.6s;
+  transition: -ms-tranform 0.6s;
+  -o-transition: transform 0.6s;
+  transition: transform 0.6s; 
 }
 
 .flip-card.last {
@@ -492,60 +491,52 @@ section .wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  display: table;
+  text-align: center;  
   z-index: 0;
   -webkit-transition: -webkit-transform 0.6s;
   transition: -webkit-transform 0.6s;
   transition: -ms-transform 0.6s;
   -o-transition: transform 0.6s;
-  transition: transform 0.6s;
+  transition: transform 0.6s;  
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.flip-car-front {
+  padding: 25px 15px;
 }
 
 .flip-card .flip-card-front,
 .flip-card .flip-card-back {
   height: 360px;
   width: 100%;
-  position: absolute;
-  display: table-cell;
-  vertical-align: middle;  
+  position: absolute;  
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: -webkit-backface-visibility 0.2s;
   -webkit-transition: backface-visibility 0.2s;
-  transition: backface-visibility 0.2s;
-  -webkit-transition: z-index 0s;
-  -o-transition: z-index 0s;
-  transition: z-index 0s;
-  -webkit-transition-delay: 0.2s;
-  -o-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+  transition: backface-visibility 0.2s;  
 }
 
 .flip-card-back {
-  padding: 25px 10px;
+  padding: 25px 10px; 
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  z-index: 0;
 }
 
 .flip-card.active .flip-card-inner {
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
-  transform: rotateY(180deg);    
-}
-
-.flip-card.active .flip-card-front {
-  z-index: 0;
+  transform: rotateY(180deg);
 }
 
 .flip-card.active .flip-card-back {
   -webkit-backface-visibility: visible;
-  backface-visibility: visible;
-  z-index: 1;
+  backface-visibility: visible;  
 }
 
 .card-front-body {  
@@ -557,14 +548,6 @@ section .wrapper {
 .card-front-body h4 {
   font-size: 25px;
   color: #e7e7e7;
-}
-
-.fip-card-back h4::after {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 5px;
-  background-color: #000;
 }
 
 .card-front-head p {
