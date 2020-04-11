@@ -431,6 +431,7 @@ section.sec-cont {
 
 section .wrap-helper {
   display: table;
+  height: 100vh;
   min-height: 100vh;
   position: relative;
   z-index: 1;
