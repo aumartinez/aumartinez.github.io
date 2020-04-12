@@ -828,7 +828,8 @@ input.form-control {
 /* Footer */
 
 footer {
-  padding: 60px 0;  
+  padding: 60px 0; 
+  position: relative;
 }
 
 #contact.active ~ footer {
@@ -839,7 +840,7 @@ footer {
 }
 
 #projects.active ~ #contact ~ footer {
-  z-index: -999;
+  position: relative;
 }
 
 ul.social {
