@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="global">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>AM\CodeCraft</title>
+    
+    <meta name="description" content="AM\CodeCraft Web Development" />
+    <meta name="keywords" content="HTML, CSS, PHP, JavaScript" />
+    <meta name="author" content="Augusto Martinez" />
+		
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- link to main stylesheet -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css" />
+    <link rel="stylesheet" href="css/global.css" type="text/css" />
+    <link rel="stylesheet" href="css/animations.css" type="text/css" />
+    
+    <!-- scripts -->
+	  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163562978-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-163562978-1');
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MHHP962');
+    </script>
+    <!-- End Google Tag Manager -->  
+    
+    <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body id="top">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHHP962"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <script src="js/loader.js"></script>
+    
+    <!-- HTML start -->
+    
+    <header>
+      <div class="bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="/" title="Home">
+                    <img class="hidden-sm" src="img/favicon-32x32.png" alt="Logo" />
+                    <span>AM\CodeCraft</span>
+                  </a>
+                  
+                  <div class="mobile theme-switch visible-xs">
+                    <div class="slider round" data-toggle="active"></div>
+                  </div> 
+                  <button type="button" class="navbar-toggle sidenavbar" data-toggle="active" data-target=".sidenavbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                  </button>
+                </div>
+                  
+                <div class="navbar-collapse sidenavbar" id="navbar">
+                   <ul class="nav navbar-nav navbar-right" data-animate="navbar-scroll">
+                    <li class="active"><a href="#top" data-observe="#intro">Home</a></li>
+                    <li><a href="#about" data-observe="#about">About me</a></li>
+                    <li><a href="#tools" data-observe="#tools">Tools</a></li>
+                    <li><a href="#services" data-observe="#services">Services</a></li>
+                    <li><a href="#projects" data-observe="#projects">Projects</a></li>
+                    <li><a href="#contact" data-observe="#contact">Contact</a></li>
+                  </ul>
+                </div>        
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		
+    <section class="hidden-xs">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="theme-switch hidden-xs">
+              <div class="slider round" data-toggle="active"></div>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </section>
+		
+    <section id="intro" class="body sec-cont" data-animate="inview">
+      <div class="container bg-intro">
+        <div class="row"><!-- row -->
+          <div class="col-xs-12 wrap-helper">
+            <div class="wrapper">
+              <h1 data-animate="once" class="ani-fade-top color-primary">
+                Hassle-free web development
+              </h1>
+              
+              <!-- animated list -->
+              <ul id="ani-list">
+                <li>Customer satisfaction first</li>
+                <li>Mobile first development</li>
+                <li>Bullet proof CSS styling</li>
+                <li>Legacy support</li>
+                <li>Supporting major web browsers</li>
+                <li>Front/Backend solutions</li>                
+              </ul>
+              
+              <div class="row">
+                <div class="col-sm-9">
+                  <p>
+                    Need help setting up your website? Do not want to struggle with all the techie jargon with your Internet Service Provider and Web Hosting services? I'm here to give you a hand (or both).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /row -->
+      </div>
+    </section>
+    
+    <section id="about" class="sec-cont" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 wrap-helper">
+            <div class="wrapper">
+              <h2 data-animate="once" class="ani-fade-top color-primary">
+                About Me
+              </h2>
+              
+              <p>
+                Just in case you were wondering, yes, I'm a geek with a passion for web technologies
+              </p>
+              
+              <div class="row">
+                <div class="col-sm-4 ani-fade-right" data-animate="once">
+                  <div class="flip-card"  data-toggle="active">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front bg-tertiary">
+                        <div class="card-front-head">
+                          <p class="text-center color-secondary">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                        <div class="card-front-body">
+                          <h4 class="text-center">
+                            Training and Experience
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="flip-card-back bg-secondary color-lite">
+                        <div class="card-back-head">
+                          <h4 class="text-center">
+                            Training and Experience
+                          </h4>
+                        </div>
+                        <div class="card-back-body">
+                          <p>
+                            I'm a self taught developer, with 10+ years of experience, worked in tens of projects and wrote more than 10,000+ lines of code.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-sm-4 ani-fade-top" data-animate="once">
+                  <div class="flip-card" data-toggle="active">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front bg-tertiary">
+                        <div class="card-front-head">
+                          <p class="text-center color-secondary">
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                        <div class="card-front-body">
+                          <h4>
+                            Skills
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="flip-card-back bg-secondary color-lite">
+                        <div class="card-back-head">
+                          <h4>
+                            Skills
+                          </h4>
+                        </div>
+                        
+                        <div class="card-back-body">
+                          <p>
+                            From a small business add to share on your social networks to create your own website, I have the tools and skills to help you with it.
+                          </p>
+                        </div>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-sm-4 ani-fade-left" data-animate="once">
+                  <div class="flip-card" data-toggle="active">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front bg-tertiary">
+                        <div class="card-front-head">
+                          <p class="text-center color-secondary">
+                            <i class="fa fa-coffee" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                        <div class="card-front-body">
+                          <h4>
+                            Hobbies
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="flip-card-back bg-secondary color-lite">
+                         <div class="card-back-head">
+                          <h4>
+                            Hobbies
+                          </h4>
+                        </div>
+                        
+                        <div class="card-back-body">
+                          <p>
+                            Coffee lover, husband and father to 3 children, love watching movies, playing chess and of course coding and learning about new technologies.
+                          </p>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="tools" class="sec-cont" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 wrap-helper">
+            <div class="wrapper">
+              <h2 data-animate="once" class="ani-fade-top color-primary">
+                Tools
+              </h2>
+              
+              <div class="row">
+                <div class="col-sm-9">
+                  <p>
+                    Tools I use for Web Development and Graphic Design
+                  </p>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>
+                    Graphic Design and Drawing Tools
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li>
+                      <img src="img/icon-ps.png" alt="Adobe PhotoShop" />
+                      <span>Adobe Photoshop</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-ai.png" alt="Adobe Illustrator" />
+                      <span>Adobe Illustrator</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-id.png" alt="Adobe InDesign" />
+                      <span>Adobe InDesign</span>
+                    </li>
+                    <li class="single-center">
+                      <img src="img/icon-autocad.png" alt="AutoCAD 2D" />
+                      <span>AutoCAD 2D</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Multimedia Tools
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li>
+                      <img src="img/icon-videostudio.png" alt="Corel VideoStudio" />
+                      <span>VideoStudio</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-avidemux.png" alt="AviDemux Video Editor" />
+                      <span>AviDemux</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-audacity.png" alt="Audacity" />
+                      <span>Audacity</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Favorite Editor
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li class="single-center">
+                      <img src="img/icon-notepad.png" alt="Notepad++" />
+                      <span>Notepad++</span>
+                    </li>                    
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Favorite API Tester
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li class="single-center">
+                      <img src="img/icon-postman.png" alt="PostMan" />
+                      <span>PostMan</span>
+                    </li>                    
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Frontend development languages
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li>
+                      <img src="img/icon-html5.png" alt="HTML 5" />
+                      <span>HTML 5</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-css3.png" alt="CSS 3" />
+                      <span>CSS 3</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-js.png" alt="JavaScript" />
+                      <span>JavaScript</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Frontend development frameworks and tools
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li>
+                      <img src="img/icon-sass.png" alt="Sass" />
+                      <span>Sass | Scss</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-bootstrap.png" alt="Bootstrap" />
+                      <span>Bootstrap</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-jquery.png" alt="JQuery" />
+                      <span>JQuery</span>
+                    </li>
+                    <li class="icons-2-center">
+                      <img src="img/icon-vue.png" alt="Vue JS" />
+                      <span>VueJS</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-wp.png" alt="WordPress" />
+                      <span>WordPress</span>
+                    </li>                    
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Backend development and DB
+                  </h3>
+                  
+                  <ul class="icons-list">
+                    <li>
+                      <img src="img/icon-php.png" alt="PHP" />
+                      <span>PHP</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-mysql.png" alt="MySQL" />
+                      <span>MySQL</span>
+                    </li>
+                    <li>
+                      <img src="img/icon-mariadb.png" alt="MariaDB" />
+                      <span>MariaDB</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-xs-12">
+                  <h3>
+                    Backend development framework and tools
+                  </h3>
+                  
+                  <ul class="icons-list">
+		    <li class="icons-2-center">
+                      <img src="img/icon-laravel.png" alt="Laravel">
+                      <span>Laravel</span>
+                    </li>
+                    <li class="">
+                      <img src="img/icon-apache.png" alt="Apache">
+                      <span>Apache</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="services" class="sec-cont" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 wrap-helper">
+            <div class="wrapper">
+              <h2 data-animate="once" class="ani-fade-top color-primary">
+                Services
+              </h2>
+              
+              <p>
+                Explore the bank of services available for you, if you don't find anything I can help you with, ask, I may know someone who can
+              </p>
+              
+              <div class="row">
+                <div class="col-sm-4">
+                  <ul class="collapsible-card">
+                    <li class="card-head"><a href="#panel-01" class="collapsed" data-toggle="collapse" aria-expanded="false">Frontend <span class="hidden-sm">development</span> <span class="card-sign"></span></a>
+                      <ul id="panel-01" class="card-body collapse">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Web sites UI development</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>CSS animated widgets</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>JS animated widgets</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>JS solutions</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>JS form validations</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-sm-4">
+                  <ul class="collapsible-card">
+                    <li class="card-head"><a href="#panel-02" class="collapsed" data-toggle="collapse" aria-expanded="false">Backend <span class="hidden-sm">development</span> <span class="card-sign"></span></a>
+                      <ul id="panel-02" class="card-body collapse">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>PHP applications</span></li>                        
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>MySQL databases setup</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-sm-4">
+                  <ul class="collapsible-card">
+                    <li class="card-head"><a href="#panel-03" class="collapsed" data-toggle="collapse" aria-expanded="false">Graphic Design <span class="card-sign"></span></a>
+                      <ul id="panel-03" class="card-body collapse">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Print or Web banners</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Social media posters</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Print Design</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Technical Blue prints drawing and printing</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Magazines or Books compose</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-sm-4 col-sm-offset-2 clearfix">
+                  <ul class="collapsible-card">
+                    <li class="card-head"><a href="#panel-04" class="collapsed" data-toggle="collapse" aria-expanded="false">Multimedia <span class="card-sign"></span></a>
+                      <ul id="panel-04" class="card-body collapse">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Video &amp; Audio editing</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Radio slots production and edition</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Interactive Multimedia CDROMS/DVD production</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-sm-4">
+                  <ul class="collapsible-card">
+                    <li class="card-head"><a href="#panel-05" class="collapsed" data-toggle="collapse" aria-expanded="false">Translations <span class="card-sign"></span></a>
+                      <ul id="panel-05" class="card-body collapse">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>English to Spanish</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>German to Spanish</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Spanish to English</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>German to English</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                  
+              </div>
+              
+              <div class="row sec-padding">
+                <div class="col-xs-12">
+                  <h3>
+                    Supporting the major Web browsers
+                  </h3>
+                  
+                  <ul class="logos-list">
+                    <li>
+                      <img src="img/logo-ie11.png" class="img-responsive" alt="Internet Explorer" />
+                      <span>Internet Explorer 11</span>
+                    </li>
+                    <li>
+                      <img src="img/logo-edge.png" class="img-responsive" alt="Internet Edge Explorer" />
+                      <span>Edge</span>
+                    </li>
+                    <li>
+                      <img src="img/logo-chrome.png" class="img-responsive" alt="Google Chrome" />
+                      <span>Chrome</span>
+                    </li>
+                    <li>
+                      <img src="img/logo-firefox.png" class="img-responsive" alt="Mozilla FireFox" />
+                      <span>FireFox</span>
+                    </li>
+                    <li>
+                      <img src="img/logo-opera.png" class="img-responsive" alt="Opera" />
+                      <span>Opera</span>
+                    </li>
+                    <li>
+                      <img src="img/logo-safari.png" class="img-responsive" alt="Safari" />
+                      <span>Safari</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </section>
+    
+    <section id="projects" class="sec-cont no-bottom" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 wrap-helper">
+            <div class="wrapper">
+              <h2 data-animate="once" class="ani-fade-top color-primary">
+                Projects
+              </h2>
+              
+              <div class="row">
+                <div class="col-sm-9">
+                  <p>
+                    Projects I've been enrolled to develop.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-xs-12">
+                    <div id="projects-carousel" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#projects-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#projects-carousel" data-slide-to="1"></li>
+                        <li data-target="#projects-carousel" data-slide-to="2"></li>
+                        <li data-target="#projects-carousel" data-slide-to="3"></li>
+                        <li data-target="#projects-carousel" data-slide-to="4"></li>
+                        <li data-target="#projects-carousel" data-slide-to="5"></li>
+                        <li data-target="#projects-carousel" data-slide-to="6"></li>
+                        <li data-target="#projects-carousel" data-slide-to="7"></li>
+                      </ol>
+
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner">
+                        <div class="item active">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-01.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-01.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>   
+                        </div>
+
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-02.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-02.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-03.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-03.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+                        
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-04.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-04.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+                        
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-05.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-05.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+                        
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-06.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-06.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+                        
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-07.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-07.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+                        
+                        <div class="item">
+                          <ul class="img-wrapper list-inline">
+                            <li class="hidden-xs"><img src="img/desktop-08.png" alt="Desktop" class="img-responsive" /></li>
+                            <li><img src="img/mobile-08.png" alt="Mobile" class="img-responsive center" /></li>
+                          </ul>                          
+                        </div>
+                      </div>
+
+                      <!-- Left and right controls -->
+                      <a class="left carousel-control" href="#projects-carousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="right carousel-control" href="#projects-carousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div><!-- /carousel -->             
+                </div>
+              </div>
+              
+            </div>            
+          </div>
+        </div>
+      </div>
+      
+      <div class="clients-banner bg-secondary">
+        <div class="container">
+          <div class="row">          
+            <div class="col-xs-12">
+              <p class="color-white">
+                Clients and organizations I've partnered in my career
+              </p>
+              <ul class="row clients-list">
+                <li class="logo-stack"><img src="img/logo-acam.png" alt="Casa Ave Maria" /></li>
+                <li class="logo-stripe"><img src="img/logo-caritas.png" alt="Caritas Suiza" /></li>
+                <li class="logo-stack"><img src="img/logo-rotary.png" alt="Rotary Club of Ventura" /></li>
+                <li class="logo-stripe"><img src="img/logo-childrenbelieve.png" alt="Children Believe of Canada" /></li>
+                <li class="logo-stack"><img src="img/logo-freres.png" alt="Freres des Hommes - Luxembourg" /></li>
+                <li class="logo-stripe"><img src="img/logo-accedo.png" alt="Accedo Technologies" /></li>
+                <li class="logo-stack"><img src="img/logo-blp.png" alt="BLP" /></li>
+                <li class="logo-stack"><img src="img/logo-cfca.png" alt="Christian Foundation for Children and Aging" /></li>
+                <li class="logo-stripe"><img src="img/logo-careerbuilder.png" alt="CareerBuilder" /></li>
+                <li class="logo-stripe"><img src="img/logo-smartbill.png" alt="SmartBill" /></li>
+                <li class="logo-stripe"><img src="img/logo-desagico.png" alt="DESAGICO" /></li>
+                <li class="logo-stripe"><img src="img/logo-utilityjunction.png" alt="Utility Junction" /></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact" class="sec-cont" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 wrap-helper">
+            <div class="wrapper">
+              <h2 data-animate="once" class="ani-fade-top color-primary">
+                Contact
+              </h2>
+              
+              <p>
+                Saw something I could help you with? No? Would you like a free quotation or advice with your project? 
+              </p>
+              
+              <div class="row">
+                <div class="col-sm-10 col-md-6 col-center">
+                  <form class="bg-secondary color-white" id="contact-form" action="https://accedo-gps.000webhostapp.com/contact.php" method="post">
+                    <legend>
+                      <h3 class="color-white">
+                        Drop me a line
+                      </h3>
+                    </legend>
+                    
+                    <div id="error-div" class="alert alert-danger">
+                    </div>
+                    
+                    <fieldset>                    
+                      <div class="form-group">
+                        <p class="required">
+                          required <span class="required">*</span>
+                        </p>
+                        <label for="name">
+                          Name <span class="required">*</span>
+                        </label>
+                        <input id="name" class="form-control" name="name" type="text" placeholder="Name" />
+                        <div class="err-mess">
+                          <p><span class="required">*</span> Kindly introduce your self</p>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="email">
+                          Email <span class="required">*</span>
+                        </label>
+                        <input id="email" class="form-control" name="email" type="text" placeholder="Email" />
+                        <div class="err-mess">
+                          <p><span class="required">*</span> Add a valid email address to get a response</p>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="message">
+                          Message <span class="required">*</span>
+                        </label>
+                        <textarea id="message" name="message" class="form-control"></textarea>
+                        <div class="err-mess">
+                          <p><span class="required">*</span> Please let me know how I can help you</p>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <div class="g-recaptcha" data-size="compact" data-sitekey="6LcoQeYUAAAAAMqko3cFOlT_jzZ3tDsjbSv8PvAq">
+                        </div>
+                        <div id="recaptcha">
+                        </div>
+                        <div class="err-mess">
+                          <p><span class="required">*</span> Don't forget the CAPTCHA</p>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <div id="success-div" class="alert alert-success">
+                        </div>
+                      </div>
+                      
+                      <div class="from-group">
+                        <p class="text-center">
+                          <button id="submit-form" name="submit-form" class="btn-primary" type="submit">Submit</button>
+                        </p>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="loader">
+        <img src="img/loader.gif" alt="loader" />
+      </div>
+    </section>
+    
+    <footer class="bg-black" data-animate="inview">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">          
+            <h3 class="color-white">
+              Awesome web awaits to be coded
+            </h3>
+            
+            <p class="color-white">
+              You made it to the bottom of the page, luckily something catched your eye and I'll be glad to partner with you and help you with your project.
+            </p>
+            
+            <h4 class="color-white">
+              Go social
+            </h4>
+            
+            <ul class="social color-white">              
+              <li>
+              <span class="icon github">
+              <i class="fa fa-github-alt" aria-hidden="true"></i>
+              </span> 
+              <a href="https://github.com/aumartinez" target="_blank" class="color-white" title="Github link">github.com/aumartinez</a>
+              </li>
+              <li>
+              <span class="icon stackoverflow">
+              <i class="fa fa-stack-overflow" aria-hidden="true"></i>
+              </span> 
+              <a href="https://es.stackoverflow.com/users/136223/augustom" target="_blank" class="color-white" title="Stackoverflow profile">es.stackoverflow.com/augustom</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/contact.js"></script>
+  </body>
+</html>
