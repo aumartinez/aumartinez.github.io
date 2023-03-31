@@ -978,6 +978,10 @@ ul.social a {
     float: left;
   }
 
+  .icons-list.row-4 li {
+    width: 25%;
+  }
+
   .icons-2-center{
     margin-left: 16.66%;
   }
